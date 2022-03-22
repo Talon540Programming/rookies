@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="New for 2022" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/yearly-overview/yearly-changelog.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="A number of improvements have been made to FRC ® Control System software for 2022. This article will describe and provide a brief overview of the new changes and features as well as a more complete..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/yearly-overview/yearly-changelog.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/yearly-overview/yearly-changelog.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New for 2022 &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/yearly-overview/yearly-changelog.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="../../_static/js/present.js"></script>
+        <script src="../../_static/js/hoverxref.js"></script>
+        <script src="../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../_static/js/micromodal.min.js"></script>
+        <script src="../../_static/js/versionwarning.js"></script>
+        <script src="../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../_static/js/version-2014.js"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VS Code Overview" href="../software/vscode-overview/index.html" />
+    <link rel="prev" title="Known Issues" href="known-issues.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../software/what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2022 Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="known-issues.html">Known Issues</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">New for 2022</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software/vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/wpilib-tools/robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/wpilib-tools/robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/wpilib-tools/outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/wpilib-tools/axon/index.html">Axon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/commandbased/index.html">Command-Based Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/advanced-controls/index.html">Advanced Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">2022 Overview</a> &raquo;</li>
+      <li>New for 2022</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/yearly-overview/yearly-changelog.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="new-for-2022">
+<h1>New for 2022<a class="headerlink" href="#new-for-2022" title="Permalink to this headline"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Due to the large number of breaking and substantial changes between 2021 and 2022, it is advised that existing teams thoroughly read this document!</p>
+</div>
+<p>A number of improvements have been made to FRC® Control System software for 2022. This article will describe and provide a brief overview of the new changes and features as well as a more complete changelog for Java/C++ WPILib changes. This document only includes the most relevant changes for end users, the full list of changes can be viewed on the various <a class="reference external" href="https://github.com/wpilibsuite/">WPILib</a> GitHub repositories. WPILib recognizes that some of these changes may cause teams issues in the short term upgrading. We expect it to pay off over the long term as we better improve the internals of WPILib.</p>
+<p>Due to internal GradleRIO changes, it is necessary to update previous years projects. After <a class="reference internal" href="../zero-to-robot/step-2/wpilib-setup.html"><span class="doc">Installing WPILib for 2022</span></a>, any 2020 or 2021 projects must be <a class="reference internal" href="../software/vscode-overview/importing-gradle-project.html"><span class="doc">imported</span></a> to be compatible.</p>
+<p>It’s recommended to also review the list of <a class="reference internal" href="known-issues.html"><span class="doc">known issues</span></a>.</p>
+<div class="section" id="major-changes-java-c">
+<h2>Major Changes (Java/C++)<a class="headerlink" href="#major-changes-java-c" title="Permalink to this headline"></a></h2>
+<p>These changes contain <em>some</em> of the major changes to the library that it’s important for the user to recognize. This does not include all of the breaking changes, see the other sections of this document for more changes.</p>
+<ul class="simple">
+<li><p>Drive class functions such as <code class="docutils literal notranslate"><span class="pre">DifferentialDrive</span></code> and <code class="docutils literal notranslate"><span class="pre">MecanumDrive</span></code> <strong>no longer invert</strong> the right side by default. Please use <code class="docutils literal notranslate"><span class="pre">setInverted</span></code> on your motor controllers to invert the right side to maintain the same behavior</p></li>
+<li><p>Old Command-Based has been removed from the list of new templates in VS Code. Please migrate to the new Command-Based library. The Old Command Based remains available to support existing code.</p></li>
+<li><p>IterativeRobot has been removed. Please use the TimedRobot template instead</p></li>
+</ul>
+</div>
+<div class="section" id="wpilib">
+<h2>WPILib<a class="headerlink" href="#wpilib" title="Permalink to this headline"></a></h2>
+<div class="section" id="general-library">
+<h3>General Library<a class="headerlink" href="#general-library" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Rewrite <a class="reference internal" href="../software/dashboards/glass/mech2d-widget.html"><span class="doc">Mechanism2d</span></a> to utilize NetworkTables</p></li>
+<li><p>Improved the error message when a program crashes</p></li>
+<li><p>Added support for DMA to Java</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">TimesliceRobot</span></code> project template. This allows users to timeslice schedule periodic functions</p></li>
+<li><p>Added C++ TankDrive example</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">PS4Controller</span></code> controller class</p></li>
+<li><p>Added better message for when an I2C port is out of range</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">Debouncer</span></code> (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/math/filter/Debouncer.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_debouncer.html">C++</a>) class. This helps with filtering rising and falling edges when dealing with boolean values</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">PneumaticHub</span></code> class for use with the REV Pneumatic Hub</p></li>
+<li><p>GenericHID has been updated to static functions to use for non-defined controller types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XboxController</span></code> has migrated away from taking arguments in functions and instead has functions with no arguments. An example conversion is below:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller.getTriggerAxis(GenericHID.Hand.kLeft)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">controller.getLeftTriggerAxis()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">controller.getX(GenericHID.Hand.kLeft)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">controller.getLeftX()</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getInstance()</span></code> functions in <code class="docutils literal notranslate"><span class="pre">CameraServer</span></code>, <code class="docutils literal notranslate"><span class="pre">DriverStation</span></code>, <code class="docutils literal notranslate"><span class="pre">LiveWindow</span></code>, <code class="docutils literal notranslate"><span class="pre">Preferences</span></code>, <code class="docutils literal notranslate"><span class="pre">SendableRegistry</span></code>, have been deprecated and replaced with static functions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Timer::HasPeriodPassed()</span></code> and <code class="docutils literal notranslate"><span class="pre">Timer.hasPeriodPassed()</span></code> have been deprecated. Use <code class="docutils literal notranslate"><span class="pre">AdvanceIfElapsed()</span></code> instead</p></li>
+<li><p>Several new classes have been added to enable simpler access to <code class="docutils literal notranslate"><span class="pre">Counter</span></code>: <code class="docutils literal notranslate"><span class="pre">ExternalDirectionCounter</span></code> (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/counter/ExternalDirectionCounter.html">Java</a>/ <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_external_direction_counter.html">C++</a>), <code class="docutils literal notranslate"><span class="pre">Tachometer</span></code> (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/counter/Tachometer.html">Java</a>/ <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_tachometer.html">C++</a>), and <code class="docutils literal notranslate"><span class="pre">UpDownCounter</span></code> (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj/counter/UpDownCounter.html">Java</a>/ <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_up_down_counter.html">C++</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DutyCycleEncoder</span></code>: add support for setting duty cycle range</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">ADIS16448_IMU</span></code> and <code class="docutils literal notranslate"><span class="pre">ADIS16470_IMU</span></code> classes.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">BangBangController</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/math/controller/BangBangController.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc_1_1_bang_bang_controller.html">C++</a>) for maximally-aggressive velocity control of high-inertia mechanisms, which is useful for flywheel shooters.</p></li>
+</ul>
+</div>
+<div class="section" id="breaking-changes">
+<h3>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PDP</span></code> is now <code class="docutils literal notranslate"><span class="pre">PowerDistribution</span></code></p></li>
+<li><p>Various <code class="docutils literal notranslate"><span class="pre">PCM</span></code> related classes (Solenoid, Compressor) now require a <code class="docutils literal notranslate"><span class="pre">PneumaticsModuleType</span></code> to support either the CTRE Pneumatics Control Module or REV Pneumatic Hub. Vendor specific methods have been moved to the <code class="docutils literal notranslate"><span class="pre">PneumaticsControlModule</span></code> or <code class="docutils literal notranslate"><span class="pre">PneumaticHub</span></code> classes</p></li>
+<li><p>Sendable has been broken up into NetworkTables components (called NTSendable*, <code class="docutils literal notranslate"><span class="pre">nt</span></code> namespace) and non-NetworkTables components (moved to wpiutil, <code class="docutils literal notranslate"><span class="pre">wpi</span></code> namespace). This will make it easier for vendors and external libraries to integrate Sendable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InterruptableSendableBase</span></code> has been broken up into <code class="docutils literal notranslate"><span class="pre">AsynchronousInterrupt</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">SynchronousInterrupt</span></code>. Rather then a class, like <code class="docutils literal notranslate"><span class="pre">DigitalInput</span></code> extending <code class="docutils literal notranslate"><span class="pre">InterruptableSendableBase</span></code> and all interrupt methods being accessed through the <code class="docutils literal notranslate"><span class="pre">DigitalInput</span></code>, teams should instead construct <code class="docutils literal notranslate"><span class="pre">AsynchronousInterrupt</span></code> or <code class="docutils literal notranslate"><span class="pre">SynchronousInterrupt</span></code>, and pass it the <code class="docutils literal notranslate"><span class="pre">DigitalSource</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">DigitalInput</span></code>).</p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">DriverStation.ReportWarning</span></code> and <code class="docutils literal notranslate"><span class="pre">DriverStation.ReportError</span></code> have been removed. Use <code class="docutils literal notranslate"><span class="pre">FRC_ReportError</span></code> in <code class="docutils literal notranslate"><span class="pre">frc\Errors.h</span></code> header. Status of <code class="docutils literal notranslate"><span class="pre">frc::err::Error</span></code> can be used for Errors and <code class="docutils literal notranslate"><span class="pre">frc::warn::Warning</span></code> can be used for warnings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpeedController</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">MotorController</span></code></p>
+<ul>
+<li><p>Various portions of the API still refers to <code class="docutils literal notranslate"><span class="pre">SpeedController</span></code> for backwards compatibility. Users should pass <code class="docutils literal notranslate"><span class="pre">MotorController</span></code> instead</p></li>
+</ul>
+</li>
+<li><p>Several duplicate <code class="docutils literal notranslate"><span class="pre">SpeedController</span></code> methods have been removed. Use <code class="docutils literal notranslate"><span class="pre">set</span></code> instead of <code class="docutils literal notranslate"><span class="pre">setSpeed</span></code>. Use <code class="docutils literal notranslate"><span class="pre">disable</span></code> instead of <code class="docutils literal notranslate"><span class="pre">setDisable</span></code>. Several low level methods have been removed: position, bounds, periodMultiplier, zeroLatch, and raw methods. Use the <code class="docutils literal notranslate"><span class="pre">PWM</span></code> class directly if this level of control is needed.</p></li>
+<li><p>Various DriverStation In[Mode] functions has been renamed (IE: <code class="docutils literal notranslate"><span class="pre">InDisabled</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">inDisabled</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Normalize</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">Desaturate</span></code> in <code class="docutils literal notranslate"><span class="pre">DifferentialDrive</span></code>, <code class="docutils literal notranslate"><span class="pre">MecanumDrive</span></code>, <code class="docutils literal notranslate"><span class="pre">KilloughDrive</span></code>, <code class="docutils literal notranslate"><span class="pre">MecanumDriveWheelSpeeds</span></code>, <code class="docutils literal notranslate"><span class="pre">DifferentialDriveWheelSpeeds</span></code>. <code class="docutils literal notranslate"><span class="pre">NormalizeWheelSpeeds</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">DesaturateWheelSpeeds</span></code> in <code class="docutils literal notranslate"><span class="pre">SwerveDriveKinematics</span></code>.</p></li>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">wpilibj.cameraserver</span></code> has been removed. Use <code class="docutils literal notranslate"><span class="pre">cameraserver</span></code> instead</p></li>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">RobotDrive</span></code> has been removed. Use <code class="docutils literal notranslate"><span class="pre">DifferentialDrive</span></code> instead</p></li>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">GearTooth</span></code> has been removed. Use the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class instead</p></li>
+<li><p>C++: Deprecated <code class="docutils literal notranslate"><span class="pre">WPILib.h</span></code> has been removed. Please only include what you need</p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">wpi::StringRef</span></code> is replaced with <code class="docutils literal notranslate"><span class="pre">std::string_view</span></code>. This is a drop in replacement in most cases</p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">wpi::ArrayRef</span></code> is replaced with <code class="docutils literal notranslate"><span class="pre">wpi::span</span></code>. This is a modified backport of the C++20 <code class="docutils literal notranslate"><span class="pre">std::span</span></code></p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">wpi::Twine</span></code> is replaced with <a class="reference external" href="https://fmt.dev/latest/index.html">fmtlib</a>. It has more features and is standard in C++20</p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">wpi::sys::path</span></code> is replaced with <code class="docutils literal notranslate"><span class="pre">fs::path</span></code> from <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;wpi/fs.h&gt;</span></code> which is based on <code class="docutils literal notranslate"><span class="pre">std::filesystem</span></code></p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">frc::filesystem</span></code> methods have been simplified to return <code class="docutils literal notranslate"><span class="pre">std::string</span></code>, rather then using a pointer parameter</p></li>
+<li><p>C++: <code class="docutils literal notranslate"><span class="pre">wpi::math</span></code> is replaced with <code class="docutils literal notranslate"><span class="pre">wpi::numbers</span></code> which is based on C++20 <code class="docutils literal notranslate"><span class="pre">std::numbers</span></code>.</p></li>
+<li><p>C++: Support for <code class="docutils literal notranslate"><span class="pre">std::cout</span></code> was removed from units because <code class="docutils literal notranslate"><span class="pre">&lt;iostream&gt;</span></code> has significant compile-time overhead. Use <a class="reference external" href="https://fmt.dev/latest/index.html">fmtlib</a> instead, an analog for C++20’s <code class="docutils literal notranslate"><span class="pre">std::format()</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">fmt::print(&quot;{}&quot;,</span> <span class="pre">2_m)</span></code>). The units headers automatically include fmtlib. If you still want to use <code class="docutils literal notranslate"><span class="pre">std::cout</span></code>, call <code class="docutils literal notranslate"><span class="pre">value()</span></code> on the variable being printed (e.g., <code class="docutils literal notranslate"><span class="pre">std::cout</span> <span class="pre">&lt;&lt;</span> <span class="pre">velocity.value()</span></code>).</p></li>
+<li><p>C++: Various classes have migrated to use <a class="reference internal" href="../software/basic-programming/cpp-units.html"><span class="doc">units</span></a>: <code class="docutils literal notranslate"><span class="pre">Ultrasonic</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandScheduler</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandState</span></code>, <code class="docutils literal notranslate"><span class="pre">WaitUntilCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">MecanumControllerCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">RamseteCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">SwerveControllerCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">TrapezoidProfileCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">Counter</span></code>, <code class="docutils literal notranslate"><span class="pre">CounterBase</span></code>, <code class="docutils literal notranslate"><span class="pre">DriverStation</span></code>, <code class="docutils literal notranslate"><span class="pre">Encoder</span></code>, <code class="docutils literal notranslate"><span class="pre">InterruptableSensorBase</span></code>, <code class="docutils literal notranslate"><span class="pre">MotorSafety</span></code>, <code class="docutils literal notranslate"><span class="pre">Notifier</span></code>, <code class="docutils literal notranslate"><span class="pre">SPI</span></code>, <code class="docutils literal notranslate"><span class="pre">SerialPort</span></code>, <code class="docutils literal notranslate"><span class="pre">SlewRateLimiter</span></code>, <code class="docutils literal notranslate"><span class="pre">Solenoid</span></code>, <code class="docutils literal notranslate"><span class="pre">Timer</span></code>, <code class="docutils literal notranslate"><span class="pre">Watchdog</span></code>, and Old Commands: <code class="docutils literal notranslate"><span class="pre">Command</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandGroup</span></code>, <code class="docutils literal notranslate"><span class="pre">CommandGroupEntry</span></code>, <code class="docutils literal notranslate"><span class="pre">TimedCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code>, <code class="docutils literal notranslate"><span class="pre">WaitForChildren</span></code>, <code class="docutils literal notranslate"><span class="pre">WaitUntilCommand</span></code></p></li>
+<li><p>The old <code class="docutils literal notranslate"><span class="pre">PIDController</span></code>, <code class="docutils literal notranslate"><span class="pre">PIDSource</span></code> and <code class="docutils literal notranslate"><span class="pre">PIDOutput</span></code> classes have been moved from the main library to the Old Commands Vendordep. Wrapper classes in the pidwrappers package have been added for PIDSource and PIDoutput support for WPILib classes, also in the Old Commands Vendordep. These classes have been deprecated since 2020. The new PID Controller in <code class="docutils literal notranslate"><span class="pre">edu.wpi.first.math.controller</span></code> for Java and <code class="docutils literal notranslate"><span class="pre">frc2</span></code> for C++ is the recommended replacement.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Preferences</span></code> putX methods (e.g. putDouble) have been deprecated and replaced with setX methods for consistency with the rest of WPILib API.</p></li>
+</ul>
+<div class="section" id="package-renames">
+<h4>Package Renames<a class="headerlink" href="#package-renames" title="Permalink to this headline"></a></h4>
+<p>We have committed to several organizational renames that will allow us greater flexible with new classes in the future. The VS Code project importer will update existing projects to use the new packages/headers.</p>
+<ul class="simple">
+<li><p>Several packages moved from <code class="docutils literal notranslate"><span class="pre">wpilibj</span></code> to <code class="docutils literal notranslate"><span class="pre">math</span></code>: <code class="docutils literal notranslate"><span class="pre">controller</span></code>, <code class="docutils literal notranslate"><span class="pre">estimator</span></code>, <code class="docutils literal notranslate"><span class="pre">geometry</span></code>, <code class="docutils literal notranslate"><span class="pre">kinematics</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">system</span></code>, <code class="docutils literal notranslate"><span class="pre">trajectory</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wpiutil.math</span></code> was moved to <code class="docutils literal notranslate"><span class="pre">math</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wpiutil</span></code> is now <code class="docutils literal notranslate"><span class="pre">util</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SlewRateLimiter</span></code>, <code class="docutils literal notranslate"><span class="pre">LinearFilter</span></code>, and <code class="docutils literal notranslate"><span class="pre">MedianFilter</span></code> now live in <code class="docutils literal notranslate"><span class="pre">math.filters</span></code>, along with the newly-added <code class="docutils literal notranslate"><span class="pre">Debouncer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Timer</span></code> has moved from <code class="docutils literal notranslate"><span class="pre">frc2</span></code> to <code class="docutils literal notranslate"><span class="pre">frc</span></code></p></li>
+<li><p>Motor controllers (<code class="docutils literal notranslate"><span class="pre">VictorSPX</span></code>, <code class="docutils literal notranslate"><span class="pre">PWMSparkMax</span></code>, etc) have been moved to a <code class="docutils literal notranslate"><span class="pre">motorcontrol</span></code> package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edu.wpi.cscore</span></code> has moved to <code class="docutils literal notranslate"><span class="pre">edu.wpi.first.cscore</span></code></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Uses multi-file <code class="docutils literal notranslate"><span class="pre">json</span></code> save formats instead of <code class="docutils literal notranslate"><span class="pre">ini</span></code> and supports loading/saving the workspace; when started from the VS Code tool menu, these default to using the project directory for saving rather than the system-global location</p></li>
+</ul>
+</div>
+<div class="section" id="shuffleboard">
+<h2>Shuffleboard<a class="headerlink" href="#shuffleboard" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Add widget for <code class="docutils literal notranslate"><span class="pre">Field2d</span></code></p></li>
+<li><p>Add icons to widget layouts</p></li>
+<li><p>Add titles for widgets</p></li>
+<li><p>Show exit save prompt only if not saved</p></li>
+<li><p>Use system menubar</p></li>
+<li><p>Add tab clear confirmation</p></li>
+<li><p>Save widget titles display mode preference</p></li>
+<li><p>Fix: CameraServer streams</p></li>
+<li><p>Fix: Shuffleboard not starting on Windows N. <a class="reference external" href="https://www.microsoft.com/en-us/software-download/mediafeaturepack">Media Feature Pack</a> is still needed for camera support.</p></li>
+</ul>
+</div>
+<div class="section" id="smartdashboard">
+<h2>SmartDashboard<a class="headerlink" href="#smartdashboard" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>No new changes</p></li>
+</ul>
+</div>
+<div class="section" id="glass">
+<h2>Glass<a class="headerlink" href="#glass" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Uses multi-file <code class="docutils literal notranslate"><span class="pre">json</span></code> save formats instead of <code class="docutils literal notranslate"><span class="pre">ini</span></code> and supports loading/saving the workspace; when started from the VS Code tool menu, these default to using the project directory for saving rather than the system-global location</p></li>
+</ul>
+</div>
+<div class="section" id="axon">
+<h2>Axon<a class="headerlink" href="#axon" title="Permalink to this headline"></a></h2>
+<p>We have made a new tool for machine learning in the FIRST Robotics Competition. Axon allows users to view and create datasets, train machine learning models, test your models within the browser-based GUI, and export them for use on a Raspberry Pi. Detecting complex objects (such as hatch panels and other robots) has never been easier and an end-to-end user guide is available in the <a class="reference internal" href="../software/wpilib-tools/axon/index.html"><span class="doc">WPILib docs</span></a>. Axon provides the functionality to train machine learning models to recognize any object you want (defined in a homemade dataset), or generic objects such as cats, airplanes, and hot dogs.</p>
+<p>Axon is a replacement for the previous AWS-based Jupyter Notebook solution released in the 2019 season. Axon has a smooth installation and user experience overall, and a much more friendly GUI for beginners and experts alike.</p>
+<p>Running machine learning models on the WPILib Raspberry Pi image has never been easier either; the new Python script for the Pi features time-synchronous NetworkTables data streaming, as well as a better quality live inference MJPEG stream.</p>
+</div>
+<div class="section" id="pathweaver">
+<h2>PathWeaver<a class="headerlink" href="#pathweaver" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>No new changes</p></li>
+</ul>
+</div>
+<div class="section" id="gradlerio">
+<h2>GradleRIO<a class="headerlink" href="#gradlerio" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Gradle has been updated to version 7.3.2</p></li>
+<li><p>Internals of GradleRIO have been updated to be easier to read, more maintainable and easier for advanced teams to modify.</p></li>
+<li><p>Deployment is more customizable</p></li>
+</ul>
+</div>
+<div class="section" id="cscore">
+<h2>cscore<a class="headerlink" href="#cscore" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The supported OpenCV version has been bumped to OpenCV4</p></li>
+</ul>
+</div>
+<div class="section" id="outlineviewer">
+<h2>OutlineViewer<a class="headerlink" href="#outlineviewer" title="Permalink to this headline"></a></h2>
+<p>OutlineViewer has been updated to be C++ based using the ImGui library. This makes OutlineViewer more maintainable and performant.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Java version of OutlineViewer is discontinued and is no longer supported!</p>
+</div>
+</div>
+<div class="section" id="wpilib-all-in-one-installer">
+<h2>WPILib All in One Installer<a class="headerlink" href="#wpilib-all-in-one-installer" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Simplified installation choices</p></li>
+<li><p>Visual Studio Code has been updated to 1.63.2</p></li>
+<li><p>Updated Java and C++ language extensions</p></li>
+<li><p>Fix Linux desktop icon permissions</p></li>
+<li><p>Add year to tools shortcuts name</p></li>
+<li><p>Handle issues with JDK running and UAC canceled</p></li>
+</ul>
+</div>
+<div class="section" id="visual-studio-code-extension">
+<h2>Visual Studio Code Extension<a class="headerlink" href="#visual-studio-code-extension" title="Permalink to this headline"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The project importer will only import 2020/2021 projects!</p>
+</div>
+<ul class="simple">
+<li><p>Project Importer has been updated for the 2022 season. The project importer will attempt update the imported code, but manual changes may still be necessary due to the complexity of the breaking changes this year.</p></li>
+<li><p>Remove Eclipse Project Importer</p></li>
+<li><p>Fix chcp not found warning during simulation on Windows</p></li>
+<li><p>Add additional information to the project information command display</p></li>
+</ul>
+</div>
+<div class="section" id="robotbuilder">
+<h2>RobotBuilder<a class="headerlink" href="#robotbuilder" title="Permalink to this headline"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Due to project file changes, Robotbuilder will not import yaml save files from 2021 or earlier.</p>
+</div>
+<ul class="simple">
+<li><p>Update to compile with WPILib 2022 (remove RobotDrive and GearTooth), update PID Controllers, and pneumatics</p></li>
+<li><p>Improve type detection to detect changes in certain C++ types that were not previously detected as changes</p></li>
+<li><p>Add project setting to enable or disable desktop support</p></li>
+<li><p>Fix Java export of DoubleSolenoid, RobotDrive4, MecanumDrive, and Killough drive to avoid extra local copy</p></li>
+<li><p>Fix C++ export of ConditionalCommand</p></li>
+<li><p>Don’t validate timeout parameters that are less than 0</p></li>
+</ul>
+</div>
+<div class="section" id="sysid">
+<h2>SysID<a class="headerlink" href="#sysid" title="Permalink to this headline"></a></h2>
+<p><a class="reference internal" href="../software/pathplanning/system-identification/index.html"><span class="doc">SysId</span></a> is a fully featured system identification utility that supersedes frc-characterization. It features an easy-to-use interface, advanced graphing analytics, Romi integration and other cool features!.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>frc-characterization is discontinued and is no longer supported!</p>
+</div>
+</div>
+<div class="section" id="romi">
+<h2>Romi<a class="headerlink" href="#romi" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>A Romi Library has been created to contain several helper classes that are a part of the <code class="docutils literal notranslate"><span class="pre">RomiReference</span></code> example. <a class="reference external" href="https://raw.githubusercontent.com/wpilibsuite/romi-vendordep/main/RomiVendordep.json">Romi Vendordep</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="known-issues.html" class="btn btn-neutral float-left" title="Known Issues" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../software/vscode-overview/index.html" class="btn btn-neutral float-right" title="VS Code Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>

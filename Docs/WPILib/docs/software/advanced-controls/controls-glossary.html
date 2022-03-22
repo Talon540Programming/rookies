@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="Controls Glossary" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controls-glossary.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="control effort, A term describing how much force, pressure, etc. an actuator is exerting.,, control input, The input of a plant used for the purpose of controlling it,, control law, A mathematical ..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/software/advanced-controls/controls-glossary.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/software/advanced-controls/controls-glossary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controls Glossary &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controls-glossary.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="../../../_static/js/present.js"></script>
+        <script src="../../../_static/js/hoverxref.js"></script>
+        <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../../_static/js/micromodal.min.js"></script>
+        <script src="../../../_static/js/versionwarning.js"></script>
+        <script src="../../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../../_static/js/version-2014.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Convenience Features" href="../convenience-features/index.html" />
+    <link rel="prev" title="Debugging State-Space Models and Controllers" href="state-space/state-space-debugging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yearly-overview/index.html">2022 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/axon/index.html">Axon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commandbased/index.html">Command-Based Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Controls</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="video-walkthrough.html">A Video Walkthrough of Model Based Validation of Autonomous in FRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/index.html">Advanced Controls Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters/index.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry/index.html">Geometry Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers/index.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trajectories/index.html">Trajectory Generation and Following with WPILib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state-space/index.html">State-Space and Model Based Control with WPILib</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Controls Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Advanced Controls</a> &raquo;</li>
+      <li>Controls Glossary</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/software/advanced-controls/controls-glossary.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="controls-glossary">
+<h1>Controls Glossary<a class="headerlink" href="#controls-glossary" title="Permalink to this headline"></a></h1>
+<dl class="glossary">
+<dt id="term-control-effort">control effort<a class="headerlink" href="#term-control-effort" title="Permalink to this term"></a></dt><dd><p>A term describing how much force, pressure, etc. an actuator is exerting.</p>
+</dd>
+<dt id="term-control-input">control input<a class="headerlink" href="#term-control-input" title="Permalink to this term"></a></dt><dd><p>The input of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a> used for the purpose of controlling it</p>
+</dd>
+<dt id="term-control-law">control law<a class="headerlink" href="#term-control-law" title="Permalink to this term"></a></dt><dd><p>A mathematical formula that generates <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">inputs</span></a> to drive a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> to a desired <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>, given the current <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>. A common example is the control law <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{K(r - x)}\)</span></p>
+</dd>
+<dt id="term-controller">controller<a class="headerlink" href="#term-controller" title="Permalink to this term"></a></dt><dd><p>Used in position or negative feedback with a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a> to bring about a desired <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">system state</span></a> by driving the difference between a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-reference" data-version="stable" href="#term-reference"><span class="xref std std-term">reference</span></a> signal and the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> to zero.</p>
+</dd>
+<dt id="term-dynamics">dynamics<a class="headerlink" href="#term-dynamics" title="Permalink to this term"></a></dt><dd><p>A branch of physics concerned with the motion of bodies under the action of forces. In modern control, systems evolve according to their dynamics.</p>
+</dd>
+<dt id="term-error">error<a class="headerlink" href="#term-error" title="Permalink to this term"></a></dt><dd><p><a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-reference" data-version="stable" href="#term-reference"><span class="xref std std-term">Reference</span></a> minus an <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> or <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>.</p>
+</dd>
+<dt id="term-gain">gain<a class="headerlink" href="#term-gain" title="Permalink to this term"></a></dt><dd><p>A proportional value that relates the magnitude of an input signal to the magnitude of an output signal. In the signal-dimensional case, gain can be thought of as the proportional term of a PID controller. A gain greater than one would amplify an input signal, while a gain less than one would dampen an input signal. A negative gain would negate the input signal.</p>
+</dd>
+<dt id="term-hidden-state">hidden state<a class="headerlink" href="#term-hidden-state" title="Permalink to this term"></a></dt><dd><p>A <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a> that cannot be directly measured, but whose <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-dynamics" data-version="stable" href="#term-dynamics"><span class="xref std std-term">dynamics</span></a> can be related to other states.</p>
+</dd>
+<dt id="term-input">input<a class="headerlink" href="#term-input" title="Permalink to this term"></a></dt><dd><p>An input to the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a> (hence the name) that can be used to change the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant’s</span></a> <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex. A flywheel will have 1 input: the voltage of the motor driving it.</p></li>
+<li><p>Ex. A drivetrain might have 2 inputs: the voltages of the left and right motors.</p></li>
+</ul>
+</div></blockquote>
+<p>Inputs are often represented by the variable <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, a column vector with one entry per <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">input</span></a> to the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a>.</p>
+</dd>
+<dt id="term-measurement">measurement<a class="headerlink" href="#term-measurement" title="Permalink to this term"></a></dt><dd><p>Measurements are <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">outputs</span></a> that are measured from a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a>, or physical system, using sensors.</p>
+</dd>
+<dt id="term-model">model<a class="headerlink" href="#term-model" title="Permalink to this term"></a></dt><dd><p>A set of mathematical equations that reflects some aspect of a physical <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system’s</span></a> behavior.</p>
+</dd>
+<dt id="term-moment-of-inertia">moment of inertia<a class="headerlink" href="#term-moment-of-inertia" title="Permalink to this term"></a></dt><dd><p>A measurement of a rotating body’s resistance to angular acceleration or deceleration. Angular moment of inertia can be thought of as angular mass. See also: <a class="reference external" href="https://en.wikipedia.org/wiki/Moment_of_inertia">Moment of inertia</a>.</p>
+</dd>
+<dt id="term-observer">observer<a class="headerlink" href="#term-observer" title="Permalink to this term"></a></dt><dd><p>In control theory, a system that provides an estimate of the internal <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a> of a given real <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> from measurements of the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">input</span></a> and <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> of the real <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a>. WPILib includes a Kalman Filter class for observing linear systems, and ExtendedKalmanFilter and UnscentedKalmanFilter classes for nonlinear systems.</p>
+</dd>
+<dt id="term-output">output<a class="headerlink" href="#term-output" title="Permalink to this term"></a></dt><dd><p>Measurements from sensors. There can be more measurements then states. These outputs are used in the “correct” step of Kalman Filters.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex. A flywheel might have 1 <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> from a encoder that measures it’s velocity.</p></li>
+<li><p>Ex. A drivetrain might use solvePNP and V-SLAM to find it’s x/y/heading position on the field. It’s fine that there are 6 measurements (solvePNP x/y/heading and V-SLAM x/y/heading) and 3 states (robot x/y/heading).</p></li>
+</ul>
+</div></blockquote>
+<p>Outputs of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> are often represented using the variable <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, a column vector with one entry per <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> (or thing we can measure). For example, if our <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> had states for velocity and acceleration but our sensor could only measure velocity, our, our <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">output</span></a> vector would only include the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a>'s velocity.</p>
+</dd>
+<dt id="term-plant">plant<a class="headerlink" href="#term-plant" title="Permalink to this term"></a></dt><dd><p>The <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> or collection of actuators being controlled.</p>
+</dd>
+<dt id="term-process-variable">process variable<a class="headerlink" href="#term-process-variable" title="Permalink to this term"></a></dt><dd><p>The term used to describe the output of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a> in the context of PID control.</p>
+</dd>
+<dt id="term-reference">reference<a class="headerlink" href="#term-reference" title="Permalink to this term"></a></dt><dd><p>The desired state. This value is used as the reference point for a controller’s error calculation.</p>
+</dd>
+<dt id="term-rise-time">rise time<a class="headerlink" href="#term-rise-time" title="Permalink to this term"></a></dt><dd><p>The time a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> takes to initially reach the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-reference" data-version="stable" href="#term-reference"><span class="xref std std-term">reference</span></a> after applying a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-step-input" data-version="stable" href="#term-step-input"><span class="xref std std-term">step input</span></a>.</p>
+</dd>
+<dt id="term-setpoint">setpoint<a class="headerlink" href="#term-setpoint" title="Permalink to this term"></a></dt><dd><p>The term used to describe the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-reference" data-version="stable" href="#term-reference"><span class="xref std std-term">reference</span></a> of a PID controller.</p>
+</dd>
+<dt id="term-settling-time">settling time<a class="headerlink" href="#term-settling-time" title="Permalink to this term"></a></dt><dd><p>The time a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> takes to settle at the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-reference" data-version="stable" href="#term-reference"><span class="xref std std-term">reference</span></a> after a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-step-input" data-version="stable" href="#term-step-input"><span class="xref std std-term">step input</span></a> is applied.</p>
+</dd>
+<dt id="term-state">state<a class="headerlink" href="#term-state" title="Permalink to this term"></a></dt><dd><p>A characteristic of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> (e.g., velocity) that can be used to determine the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system’s</span></a> future behavior. In state-space notation, the state of a system is written as a column vector describing it’s position in state-space.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex. A drivetrain system might have the states <span class="math notranslate nohighlight">\(\begin{bmatrix}x \\ y \\ \theta \end{bmatrix}\)</span> to describe it’s position on the field.</p></li>
+<li><p>Ex. An elevator system might have the states <span class="math notranslate nohighlight">\(\begin{bmatrix} \text{position} \\ \text{velocity} \end{bmatrix}\)</span> to describe its current height and velocity.</p></li>
+</ul>
+</div></blockquote>
+<p>A <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system’s</span></a> state is often represented by the variable <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, a column vector with one entry per <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>.</p>
+</dd>
+<dt id="term-steady-state-error">steady-state error<a class="headerlink" href="#term-steady-state-error" title="Permalink to this term"></a></dt><dd><p><a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-error" data-version="stable" href="#term-error"><span class="xref std std-term">Error</span></a> after <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> reaches equilibrium.</p>
+</dd>
+<dt id="term-step-input">step input<a class="headerlink" href="#term-step-input" title="Permalink to this term"></a></dt><dd><p>A <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">input</span></a> that is <span class="math notranslate nohighlight">\(0\)</span> for <span class="math notranslate nohighlight">\(t &lt; 0\)</span> and a constant greater than <span class="math notranslate nohighlight">\(0\)</span> for <span class="math notranslate nohighlight">\(t \geq 0\)</span>. A step input that is <span class="math notranslate nohighlight">\(1\)</span> for <span class="math notranslate nohighlight">\(t \geq 0\)</span> is called a unit step input.</p>
+</dd>
+<dt id="term-step-response">step response<a class="headerlink" href="#term-step-response" title="Permalink to this term"></a></dt><dd><p>The response of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> to a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-step-input" data-version="stable" href="#term-step-input"><span class="xref std std-term">step input</span></a>.</p>
+</dd>
+<dt id="term-system">system<a class="headerlink" href="#term-system" title="Permalink to this term"></a></dt><dd><p>A term encompassing a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-plant" data-version="stable" href="#term-plant"><span class="xref std std-term">plant</span></a> and it’s interaction with a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-controller" data-version="stable" href="#term-controller"><span class="xref std std-term">controller</span></a> and <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-observer" data-version="stable" href="#term-observer"><span class="xref std std-term">observer</span></a>, which is treated as a single entity. Mathematically speaking, a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> maps <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">inputs</span></a> to <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-output" data-version="stable" href="#term-output"><span class="xref std std-term">outputs</span></a> through a linear combination of <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">states</span></a>.</p>
+</dd>
+<dt id="term-system-identification">system identification<a class="headerlink" href="#term-system-identification" title="Permalink to this term"></a></dt><dd><p>The process of capturing a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">systems</span></a> <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-dynamics" data-version="stable" href="#term-dynamics"><span class="xref std std-term">dynamics</span></a> in a mathematical model using measured data. The SysId toolsuite uses system identification to find kS, kV and kA terms.</p>
+</dd>
+<dt id="term-system-response">system response<a class="headerlink" href="#term-system-response" title="Permalink to this term"></a></dt><dd><p>The behavior of a <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> over time for a given <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-input" data-version="stable" href="#term-input"><span class="xref std std-term">input</span></a>.</p>
+</dd>
+<dt id="term-x-dot">x-dot<a class="headerlink" href="#term-x-dot" title="Permalink to this term"></a></dt><dd><p><span class="math notranslate nohighlight">\(\dot{\mathbf{x}}\)</span>, or x-dot: the derivative of the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a> vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. If the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a> had just a velocity <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a>, then <span class="math notranslate nohighlight">\(\dot{\mathbf{x}}\)</span> would represent the <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-system" data-version="stable" href="#term-system"><span class="xref std std-term">system</span></a>'s acceleration.</p>
+</dd>
+<dt id="term-x-hat">x-hat<a class="headerlink" href="#term-x-hat" title="Permalink to this term"></a></dt><dd><p><span class="math notranslate nohighlight">\(\hat{\mathbf{x}}\)</span>, or x-hat: the estimated <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-state" data-version="stable" href="#term-state"><span class="xref std std-term">state</span></a> of a system, as estimated by an <a class="hoverxref tooltip reference internal" data-doc="docs/software/advanced-controls/controls-glossary" data-docpath="/docs/software/advanced-controls/controls-glossary.html" data-project="frc-docs" data-section="term-observer" data-version="stable" href="#term-observer"><span class="xref std std-term">observer</span></a>.</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="state-space/state-space-debugging.html" class="btn btn-neutral float-left" title="Debugging State-Space Models and Controllers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../convenience-features/index.html" class="btn btn-neutral float-right" title="Convenience Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>

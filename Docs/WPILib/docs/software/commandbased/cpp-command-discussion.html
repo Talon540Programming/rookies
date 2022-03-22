@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="A Technical Discussion on C++ Commands" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/software/commandbased/cpp-command-discussion.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="This article will help you understand the reasoning behind some of the decisions made in the new command-based framework (such as the use of std::unique_ptr, CRTP in the form of CommandHelper<Base,..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/software/commandbased/cpp-command-discussion.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/software/commandbased/cpp-command-discussion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Technical Discussion on C++ Commands &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/cpp-command-discussion.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="../../../_static/js/present.js"></script>
+        <script src="../../../_static/js/hoverxref.js"></script>
+        <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../../_static/js/micromodal.min.js"></script>
+        <script src="../../../_static/js/versionwarning.js"></script>
+        <script src="../../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../../_static/js/version-2014.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Kinematics and Odometry" href="../kinematics-and-odometry/index.html" />
+    <link rel="prev" title="Combining Motion Profiling and PID in Command-Based" href="profilepid-subsystems-commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yearly-overview/index.html">2022 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/axon/index.html">Axon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command-Based Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command-based-changes.html">2020 Command-Based Rewrite: What Changed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html">What Is “Command-Based” Programming?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html#creating-a-robot-project">Creating a Robot Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems.html">Subsystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-groups.html">Command Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-scheduler.html">The Command Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding-commands-to-triggers.html">Binding Commands to Triggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structuring-command-based-project.html">Structuring a Command-Based Robot Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convenience-features.html">Convenience Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pid-subsystems-commands.html">PID Control through PIDSubsystems and PIDCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile-subsystems-commands.html">Motion Profiling through TrapezoidProfileSubsystems and TrapezoidProfileCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profilepid-subsystems-commands.html">Combining Motion Profiling and PID in Command-Based</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">A Technical Discussion on C++ Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-controls/index.html">Advanced Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Command-Based Programming</a> &raquo;</li>
+      <li>A Technical Discussion on C++ Commands</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/software/commandbased/cpp-command-discussion.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="a-technical-discussion-on-c-commands">
+<h1>A Technical Discussion on C++ Commands<a class="headerlink" href="#a-technical-discussion-on-c-commands" title="Permalink to this headline"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This article serves as a technical discussion on some of the design decisions that were made when designing the new command-based framework in C++. You do not need to understand the information within this article to use the command-based framework in your robot code.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This article assumes that you have a fair understanding of advanced C++ concepts, including templates, smart pointers, inheritance, rvalue references, copy semantics, move semantics, and CRTP.</p>
+</div>
+<p>This article will help you understand the reasoning behind some of the decisions made in the new command-based framework (such as the use of <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>, CRTP in the form of <code class="docutils literal notranslate"><span class="pre">CommandHelper&lt;Base,</span> <span class="pre">Derived&gt;</span></code>, the lack of more advanced decorators that are available in Java, etc.)</p>
+<div class="section" id="ownership-model">
+<h2>Ownership Model<a class="headerlink" href="#ownership-model" title="Permalink to this headline"></a></h2>
+<p>The old command-based framework employed the use of raw pointers, meaning that users had to use <code class="docutils literal notranslate"><span class="pre">new</span></code> (resulting in manual heap allocations) in their robot code. Since there was no clear indication on who owned the commands (the scheduler, the command groups, or the user themselves), it was not apparent who was supposed to take care of freeing the memory.</p>
+<p>Several examples in the old command-based framework involved code like this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;PlaceSoda.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Elevator.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;Wrist.h&quot;</span><span class="cp"></span>
+
+<span class="n">PlaceSoda</span><span class="o">::</span><span class="n">PlaceSoda</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AddSequential</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SetElevatorSetpoint</span><span class="p">(</span><span class="n">Elevator</span><span class="o">::</span><span class="n">TABLE_HEIGHT</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">AddSequential</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SetWristSetpoint</span><span class="p">(</span><span class="n">Wrist</span><span class="o">::</span><span class="n">PICKUP</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">AddSequential</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OpenClaw</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the command-group above, the component commands of the command group were being heap allocated and passed into <code class="docutils literal notranslate"><span class="pre">AddSequential</span></code> all in the same line. This meant that that user had no reference to that object in memory and therefore had no means of freeing the allocated memory once the command group ended. The command group itself never freed the memory and neither did the command scheduler. This led to memory leaks in robot programs (i.e. memory was allocated on the heap but never freed).</p>
+<p>This glaring problem was one of the reasons for the rewrite of the framework. A comprehensive ownership model was introduced with this rewrite, along with the usage of smart pointers which will automatically free memory when they go out of scope.</p>
+<p>Default commands are owned by the command scheduler whereas component commands of command groups are owned by the command group. Other commands are owned by whatever the user decides they should be owned by (e.g. a subsystem instance or a <code class="docutils literal notranslate"><span class="pre">RobotContainer</span></code> instance). This means that the ownership of the memory allocated by any commands or command groups is clearly defined.</p>
+<div class="section" id="std-unique-ptr-vs-std-shared-ptr">
+<h3><code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> vs. <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code><a class="headerlink" href="#std-unique-ptr-vs-std-shared-ptr" title="Permalink to this headline"></a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> allows us to clearly determine who owns the object. Because an <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> cannot be copied, there will never be more than one instance of a <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> that points to the same block of memory on the heap. For example, a constructor for <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup</span></code> takes in a <code class="docutils literal notranslate"><span class="pre">std::vector&lt;std::unique_ptr&lt;Command&gt;&gt;&amp;&amp;</span></code>. This means that it requires an rvalue reference to a vector of <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;Command&gt;</span></code>. Let’s go through some example code step-by-step to understand this better:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Let&#39;s create a vector to store our commands that we want to run sequentially.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Command</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">commands</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Add an instant command that prints to the console.</span>
+<span class="n">commands</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">InstantCommand</span><span class="o">&gt;</span><span class="p">([]{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">requirements</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">// Add some other command: this can be something that a user has created.</span>
+<span class="n">commands</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyCommand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="n">needed</span><span class="p">,</span><span class="w"> </span><span class="k">for</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">command</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">// Now the vector &quot;owns&quot; all of these commands. In its current state, when the vector is destroyed (i.e.</span>
+<span class="c1">// it goes out of scope), it will destroy all of the commands we just added.</span>
+
+<span class="c1">// Let&#39;s create a SequentialCommandGroup that will run these two commands sequentially.</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SequentialCommandGroup</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">commands</span><span class="p">));</span><span class="w"></span>
+
+<span class="c1">// Note that we MOVED the vector of commands into the sequential command group, meaning that the</span>
+<span class="c1">// command group now has ownership of our commands. When we call std::move on the vector, all of its</span>
+<span class="c1">// contents (i.e. the unique_ptr instances) are moved into the command group.</span>
+
+<span class="c1">// Even if the vector were to be destroyed while the command group was running, everything would be OK</span>
+<span class="c1">// since the vector does not own our commands anymore.</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>, there is no clear ownership model because there can be multiple instances of a <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> that point to the same block of memory. If commands were in <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> instances, a command group or the command scheduler cannot take ownership and free the memory once the command has finished executing because the user might still unknowingly still have a <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> instance pointing to that block of memory somewhere in scope.</p>
+</div>
+</div>
+<div class="section" id="use-of-crtp">
+<h2>Use of CRTP<a class="headerlink" href="#use-of-crtp" title="Permalink to this headline"></a></h2>
+<p>You may have noticed that in order to create a new command, you must extend <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code>, providing the base class (usually <code class="docutils literal notranslate"><span class="pre">frc2::Command</span></code>) and the class that you just created. Let’s take a look at the reasoning behind this:</p>
+<div class="section" id="command-decorators">
+<h3>Command Decorators<a class="headerlink" href="#command-decorators" title="Permalink to this headline"></a></h3>
+<p>The new command-based framework includes a feature known as “command decorators”, which allows the user to something like this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyCommand</span><span class="p">().</span><span class="n">AndThen</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;This printed after my command ended.&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="n">requirements</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">task</span></code> is scheduled, it will first execute <code class="docutils literal notranslate"><span class="pre">MyCommand()</span></code> and once that command has finished executing, it will print the message to the console. The way this is achieved internally is by using a sequential command group.</p>
+<p>Recall from the previous section that in order to construct a sequential command group, we need a vector of unique pointers to each command. Creating the unique pointer for the print function is pretty trivial:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">InstantCommand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">toRun</span><span class="p">),</span><span class="w"> </span><span class="n">requirements</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">temp</span></code> is storing the vector of commands that we need to pass into the <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup</span></code> constructor. But before we add that <code class="docutils literal notranslate"><span class="pre">InstantCommand</span></code>, we need to add <code class="docutils literal notranslate"><span class="pre">MyCommand()</span></code> to the <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup</span></code>. How do we do that?</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyCommand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You might think it would be this straightforward, but that is not the case. Because this decorator code is in the <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface, <code class="docutils literal notranslate"><span class="pre">*this</span></code> refers to the <code class="docutils literal notranslate"><span class="pre">Command</span></code> in the subclass that you are calling the decorator from and has the type of <code class="docutils literal notranslate"><span class="pre">Command</span></code>. Effectively, you will be trying to move a <code class="docutils literal notranslate"><span class="pre">Command</span></code> instead of <code class="docutils literal notranslate"><span class="pre">MyCommand</span></code>. We could cast the <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer to a <code class="docutils literal notranslate"><span class="pre">MyCommand*</span></code> and then dereference it but we have no information about the subclass to cast to at compile-time.</p>
+</div>
+<div class="section" id="solutions-to-the-problem">
+<h3>Solutions to the Problem<a class="headerlink" href="#solutions-to-the-problem" title="Permalink to this headline"></a></h3>
+<p>Our initial solution to this was to create a virtual method in <code class="docutils literal notranslate"><span class="pre">Command</span></code> called <code class="docutils literal notranslate"><span class="pre">TransferOwnership()</span></code> that every subclass of <code class="docutils literal notranslate"><span class="pre">Command</span></code> had to override. Such an override would have looked like this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Command</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TransferOwnership</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyCommand</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Because the code would be in the derived subclass, <code class="docutils literal notranslate"><span class="pre">*this</span></code> would actually point to the desired subclass instance and the user has the type info of the derived class to make the unique pointer.</p>
+<p>After a few days of deliberation, a CRTP method was proposed. Here, an intermediary derived class of <code class="docutils literal notranslate"><span class="pre">Command</span></code> called <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code> would exist. <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code> would have two template arguments, the original base class and the desired derived subclass. Let’s take a look at a basic implementation of <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code> to understand this:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// In the real implementation, we use SFINAE to check that Base is actually a</span>
+<span class="c1">// Command or a subclass of Command.</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Base</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Derived</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CommandHelper</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Here, we are just inheriting all of the superclass (base class) constructors.</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">Base</span><span class="o">::</span><span class="n">Base</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Here, we will override the TransferOwnership() method mentioned above.</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Command</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TransferOwnership</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Previously, we mentioned that we had no information about the derived class</span>
+<span class="w">    </span><span class="c1">// to cast to at compile-time, but because of CRTP we do! It&#39;s one of our template</span>
+<span class="w">    </span><span class="c1">// arguments!</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">)));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Thus, making your custom commands extend <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Command</span></code> will automatically implement this boilerplate for you and this is the reasoning behind asking teams to use what may seem to be a rather obscure way of doing things.</p>
+<p>Going back to our <code class="docutils literal notranslate"><span class="pre">AndThen()</span></code> example, we can now do the following:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Because of how inheritance works, we will call the TransferOwnership()</span>
+<span class="c1">// of the subclass. We are moving *this because TransferOwnership() can only</span>
+<span class="c1">// be called on rvalue references.</span>
+<span class="n">temp</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">).</span><span class="n">TransferOwnership</span><span class="p">());</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lack-of-advanced-decorators">
+<h2>Lack of Advanced Decorators<a class="headerlink" href="#lack-of-advanced-decorators" title="Permalink to this headline"></a></h2>
+<p>Most of the C++ decorators take in <code class="docutils literal notranslate"><span class="pre">std::function&lt;void()&gt;</span></code> instead of actual commands themselves. The idea of taking in actual commands in decorators such as <code class="docutils literal notranslate"><span class="pre">AndThen()</span></code>, <code class="docutils literal notranslate"><span class="pre">BeforeStarting()</span></code>, etc. was considered but then abandoned due to a variety of reasons.</p>
+<div class="section" id="templating-decorators">
+<h3>Templating Decorators<a class="headerlink" href="#templating-decorators" title="Permalink to this headline"></a></h3>
+<p>Because we need to know the types of the commands that we are adding to a command group at compile-time, we will need to use templates (variadic for multiple commands). However, this might not seem like a big deal. The constructors for command groups do this anyway:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">conjunction_v</span><span class="o">&lt;</span><span class="w"></span>
+<span class="w">             </span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of</span><span class="o">&lt;</span><span class="n">Command</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">Types</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
+<span class="k">explicit</span><span class="w"> </span><span class="n">SequentialCommandGroup</span><span class="p">(</span><span class="n">Types</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AddCommands</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Types</span><span class="o">&gt;</span><span class="p">(</span><span class="n">commands</span><span class="p">)...);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Types</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">conjunction_v</span><span class="o">&lt;</span><span class="w"></span>
+<span class="w">             </span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of</span><span class="o">&lt;</span><span class="n">Command</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">Types</span><span class="o">&gt;&gt;</span><span class="p">...</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">AddCommands</span><span class="p">(</span><span class="n">Types</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">commands</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Command</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">((</span><span class="kt">void</span><span class="p">)</span><span class="n">foo</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">remove_reference_t</span><span class="o">&lt;</span><span class="n">Types</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="w"></span>
+<span class="w">       </span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Types</span><span class="o">&gt;</span><span class="p">(</span><span class="n">commands</span><span class="p">))),</span><span class="w"></span>
+<span class="w">   </span><span class="p">...);</span><span class="w"></span>
+<span class="w">  </span><span class="n">AddCommands</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">foo</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a secondary constructor for <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup</span></code> in addition to the vector constructor that we described above.</p>
+</div>
+<p>However, when we make a templated function, its definition must be declared inline. This means that we will need to instantiate the <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup</span></code> in the <code class="docutils literal notranslate"><span class="pre">Command.h</span></code> header, which poses a problem. <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup.h</span></code> includes <code class="docutils literal notranslate"><span class="pre">Command.h</span></code>. If we include <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup.h</span></code> inside of <code class="docutils literal notranslate"><span class="pre">Command.h</span></code>, we have a circular dependency. How do we do it now then?</p>
+<p>We use a forward declaration at the top of <code class="docutils literal notranslate"><span class="pre">Command.h</span></code>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SequentialCommandGroup</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Command</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>And then we include <code class="docutils literal notranslate"><span class="pre">SequentialCommandGroup.h</span></code> in <code class="docutils literal notranslate"><span class="pre">Command.cpp</span></code>. If these decorator functions were templated however, we cannot write definitions in the <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> files, resulting in a circular dependency.</p>
+</div>
+<div class="section" id="java-vs-c-syntax">
+<h3>Java vs C++ Syntax<a class="headerlink" href="#java-vs-c-syntax" title="Permalink to this headline"></a></h3>
+<p>These decorators usually save more verbosity in Java (because Java requires raw <code class="docutils literal notranslate"><span class="pre">new</span></code> calls) than in C++, so in general, it does not make much of a syntanctic difference in C++ if you create the command group manually in user code.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="profilepid-subsystems-commands.html" class="btn btn-neutral float-left" title="Combining Motion Profiling and PID in Command-Based" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../kinematics-and-odometry/index.html" class="btn btn-neutral float-right" title="Kinematics and Odometry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="Commands" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="Commands are simple state machines that perform high-level robot functions using the methods defined by subsystems. Commands can be either idle, in which they do nothing, or scheduled, in which the..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/software/commandbased/commands.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/software/commandbased/commands.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commands &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/commands.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="../../../_static/js/present.js"></script>
+        <script src="../../../_static/js/hoverxref.js"></script>
+        <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../../_static/js/micromodal.min.js"></script>
+        <script src="../../../_static/js/versionwarning.js"></script>
+        <script src="../../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../../_static/js/version-2014.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Command Groups" href="command-groups.html" />
+    <link rel="prev" title="Subsystems" href="subsystems.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yearly-overview/index.html">2022 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/axon/index.html">Axon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command-Based Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command-based-changes.html">2020 Command-Based Rewrite: What Changed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html">What Is “Command-Based” Programming?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html#creating-a-robot-project">Creating a Robot Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems.html">Subsystems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-groups.html">Command Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-scheduler.html">The Command Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding-commands-to-triggers.html">Binding Commands to Triggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structuring-command-based-project.html">Structuring a Command-Based Robot Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convenience-features.html">Convenience Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pid-subsystems-commands.html">PID Control through PIDSubsystems and PIDCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile-subsystems-commands.html">Motion Profiling through TrapezoidProfileSubsystems and TrapezoidProfileCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profilepid-subsystems-commands.html">Combining Motion Profiling and PID in Command-Based</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-command-discussion.html">A Technical Discussion on C++ Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-controls/index.html">Advanced Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Command-Based Programming</a> &raquo;</li>
+      <li>Commands</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/software/commandbased/commands.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline"></a></h1>
+<p>Commands are simple state machines that perform high-level robot functions using the methods defined by subsystems. Commands can be either idle, in which they do nothing, or scheduled, in which the scheduler will execute a specific set of the command’s code depending on the state of the command. The <code class="docutils literal notranslate"><span class="pre">CommandScheduler</span></code> recognizes scheduled commands as being in one of three states: initializing, executing, or ending. Commands specify what is done in each of these states through the <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>, <code class="docutils literal notranslate"><span class="pre">execute()</span></code> and <code class="docutils literal notranslate"><span class="pre">end()</span></code> methods.  Commands are represented in the command-based library by the <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html">C++</a>).</p>
+<div class="section" id="creating-commands">
+<h2>Creating Commands<a class="headerlink" href="#creating-commands" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the C++ API, a <a class="reference external" href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">CRTP</a> is used to allow certain Command methods to work with the object ownership model.  Users should <em>always</em> extend the <code class="docutils literal notranslate"><span class="pre">CommandHelper</span></code> <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/blob/main/wpilibNewCommands/src/main/native/include/frc2/command/CommandHelper.h">class</a> when defining their own command classes, as is shown below.</p>
+</div>
+<p>Similarly to subsystems, the recommended method for most users to create a command is to subclass the abstract <code class="docutils literal notranslate"><span class="pre">CommandBase</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/CommandBase.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command_base.html">C++</a>), as seen in the command-based template (<a class="reference external" href="https://github.com/wpilibsuite/allwpilib/blob/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java">Java</a>, <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/blob/main/wpilibcExamples/src/main/cpp/templates/commandbased/include/commands/ExampleCommand.h">C++</a>):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-SmF2YQ==" class="sphinx-tabs-panel group-tab" id="panel-0-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 7</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.templates.commandbased.subsystems.ExampleSubsystem</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj2.command.CommandBase</span><span class="p">;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cm">/** An example command that uses an example subsystem. */</span>
+<span class="linenos">11</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleCommand</span> <span class="kd">extends</span> <span class="n">CommandBase</span> <span class="p">{</span>
+<span class="linenos">12</span>  <span class="nd">@SuppressWarnings</span><span class="p">({</span><span class="s">&quot;PMD.UnusedPrivateField&quot;</span><span class="p">,</span> <span class="s">&quot;PMD.SingularField&quot;</span><span class="p">})</span>
+<span class="linenos">13</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">ExampleSubsystem</span> <span class="n">m_subsystem</span><span class="p">;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>  <span class="cm">/**</span>
+<span class="linenos">16</span><span class="cm">   * Creates a new ExampleCommand.</span>
+<span class="linenos">17</span><span class="cm">   *</span>
+<span class="linenos">18</span><span class="cm">   * @param subsystem The subsystem used by this command.</span>
+<span class="linenos">19</span><span class="cm">   */</span>
+<span class="linenos">20</span>  <span class="kd">public</span> <span class="nf">ExampleCommand</span><span class="p">(</span><span class="n">ExampleSubsystem</span> <span class="n">subsystem</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">21</span>    <span class="n">m_subsystem</span> <span class="o">=</span> <span class="n">subsystem</span><span class="p">;</span>
+<span class="linenos">22</span>    <span class="c1">// Use addRequirements() here to declare subsystem dependencies.</span>
+<span class="linenos">23</span>    <span class="n">addRequirements</span><span class="p">(</span><span class="n">subsystem</span><span class="p">);</span>
+<span class="linenos">24</span>  <span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="cp">#pragma once</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandBase.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandHelper.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;subsystems/ExampleSubsystem.h&quot;</span><span class="cp"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="cm">/**</span>
+<span class="linenos">13</span><span class="cm"> * An example command that uses an example subsystem.</span>
+<span class="linenos">14</span><span class="cm"> *</span>
+<span class="linenos">15</span><span class="cm"> * &lt;p&gt;Note that this extends CommandHelper, rather extending CommandBase</span>
+<span class="linenos">16</span><span class="cm"> * directly; this is crucially important, or else the decorator functions in</span>
+<span class="linenos">17</span><span class="cm"> * Command will *not* work!</span>
+<span class="linenos">18</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">19</span><span class="k">class</span><span class="w"> </span><span class="nc">ExampleCommand</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandHelper</span><span class="o">&lt;</span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandBase</span><span class="p">,</span><span class="w"> </span><span class="n">ExampleCommand</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">21</span><span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">  </span><span class="cm">/**</span>
+<span class="linenos">23</span><span class="cm">   * Creates a new ExampleCommand.</span>
+<span class="linenos">24</span><span class="cm">   *</span>
+<span class="linenos">25</span><span class="cm">   * @param subsystem The subsystem used by this command.</span>
+<span class="linenos">26</span><span class="cm">   */</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">ExampleCommand</span><span class="p">(</span><span class="n">ExampleSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">subsystem</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">  </span><span class="n">ExampleSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">m_subsystem</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">31</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>As before, this contains several convenience features. It automatically overrides the <code class="docutils literal notranslate"><span class="pre">getRequirements()</span></code> method for users, returning a list
+of requirements that is empty by default, but can be added to with the <code class="docutils literal notranslate"><span class="pre">addRequirements()</span></code> method. It also implements the <code class="docutils literal notranslate"><span class="pre">Sendable</span></code> interface, and so can be sent to the dashboard - this provides a handy way for scheduling commands for testing (via a button on the dashboard) without needing to bind them to buttons on a controller.</p>
+<p>Also as before, advanced users seeking more flexibility are free to simply create their own class implementing the <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface.</p>
+</div>
+<div class="section" id="the-structure-of-a-command">
+<h2>The Structure of a Command<a class="headerlink" href="#the-structure-of-a-command" title="Permalink to this headline"></a></h2>
+<p>While subsystems are fairly freeform, and may generally look like whatever the user wishes them to, commands are quite a bit more constrained. Command code must specify what the command will do in each of its possible states. This is done by overriding the <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>, <code class="docutils literal notranslate"><span class="pre">execute()</span></code>, and <code class="docutils literal notranslate"><span class="pre">end()</span></code> methods. Additionally, a command must be able to tell the scheduler when (if ever) it has finished execution - this is done by overriding the <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> method. All of these methods are defaulted to reduce clutter in user code: <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>, <code class="docutils literal notranslate"><span class="pre">execute()</span></code>, and <code class="docutils literal notranslate"><span class="pre">end()</span></code> are defaulted to simply do nothing, while <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> is defaulted to return false (resulting in a command that never ends).</p>
+<div class="section" id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">initialize()</span></code> method (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#initialize()">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#ad3f1971a1b44ecdd4683d766f831bccd">C++</a>) is run exactly once per time a command is scheduled, as part of the scheduler’s <code class="docutils literal notranslate"><span class="pre">schedule()</span></code> method. The scheduler’s <code class="docutils literal notranslate"><span class="pre">run()</span></code> method does not need to be called for the <code class="docutils literal notranslate"><span class="pre">initialize()</span></code> method to run. The initialize block should be used to place the command in a known starting state for execution. It is also useful for performing tasks that only need to be performed once per time scheduled, such as setting motors to run at a constant speed or setting the state of a solenoid actuator.</p>
+</div>
+<div class="section" id="execution">
+<h3>Execution<a class="headerlink" href="#execution" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#execute()">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#a7d7ea1271f7dcc65c0ba3221d179b510">C++</a>) is called repeatedly while the command is scheduled, whenever the scheduler’s <code class="docutils literal notranslate"><span class="pre">run()</span></code> method is called (this is generally done in the main robot periodic method, which runs every 20ms by default). The execute block should be used for any task that needs to be done continually while the command is scheduled, such as updating motor outputs to match joystick inputs, or using the output of a control loop.</p>
+</div>
+<div class="section" id="ending">
+<h3>Ending<a class="headerlink" href="#ending" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">end()</span></code> method (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#end(boolean)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#a134eda3756f00c667bb5415b23ee920c">C++</a>) is called once when the command ends, whether it finishes normally (i.e. <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> returned true) or it was interrupted (either by another command or by being explicitly canceled). The method argument specifies the manner in which the command ended; users can use this to differentiate the behavior of their command end accordingly. The end block should be used to “wrap up” command state in a neat way, such as setting motors back to zero or reverting a solenoid actuator to a “default” state.</p>
+</div>
+<div class="section" id="specifying-end-conditions">
+<h3>Specifying end conditions<a class="headerlink" href="#specifying-end-conditions" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> method (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#end(boolean)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#af5e8c12152d195a4f3c06789366aac88">C++</a>) is called repeatedly while the command is scheduled, whenever the scheduler’s <code class="docutils literal notranslate"><span class="pre">run()</span></code> method is called. As soon as it returns true, the command’s <code class="docutils literal notranslate"><span class="pre">end()</span></code> method is called and it is un-scheduled. The <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> method is called <em>after</em> the <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method, so the command <em>will</em> execute once on the same iteration that it is un-scheduled.</p>
+</div>
+</div>
+<div class="section" id="simple-command-example">
+<h2>Simple Command Example<a class="headerlink" href="#simple-command-example" title="Permalink to this headline"></a></h2>
+<p>What might a functional command look like in practice? As before, below is a simple command from the HatchBot example project (<a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional">Java</a>, <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibcExamples/src/main/cpp/examples/HatchbotTraditional">C++</a>) that uses the <code class="docutils literal notranslate"><span class="pre">HatchSubsystem</span></code> introduced in the previous section:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-1-QysrIChIZWFkZXIp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tab" tabindex="-1">C++ (Header)</button><button aria-controls="panel-1-QysrIChTb3VyY2Up" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tab" tabindex="-1">C++ (Source)</button></div><div aria-labelledby="tab-1-SmF2YQ==" class="sphinx-tabs-panel group-tab" id="panel-1-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="kn">package</span> <span class="nn">edu.wpi.first.wpilibj.examples.hatchbottraditional.commands</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.examples.hatchbottraditional.subsystems.HatchSubsystem</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj2.command.CommandBase</span><span class="p">;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cm">/**</span>
+<span class="linenos">11</span><span class="cm"> * A simple command that grabs a hatch with the {@link HatchSubsystem}. Written explicitly for</span>
+<span class="linenos">12</span><span class="cm"> * pedagogical purposes. Actual code should inline a command this simple with {@link</span>
+<span class="linenos">13</span><span class="cm"> * edu.wpi.first.wpilibj2.command.InstantCommand}.</span>
+<span class="linenos">14</span><span class="cm"> */</span>
+<span class="linenos">15</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GrabHatch</span> <span class="kd">extends</span> <span class="n">CommandBase</span> <span class="p">{</span>
+<span class="linenos">16</span>  <span class="c1">// The subsystem the command runs on</span>
+<span class="linenos">17</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">HatchSubsystem</span> <span class="n">m_hatchSubsystem</span><span class="p">;</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>  <span class="kd">public</span> <span class="nf">GrabHatch</span><span class="p">(</span><span class="n">HatchSubsystem</span> <span class="n">subsystem</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">20</span>    <span class="n">m_hatchSubsystem</span> <span class="o">=</span> <span class="n">subsystem</span><span class="p">;</span>
+<span class="linenos">21</span>    <span class="n">addRequirements</span><span class="p">(</span><span class="n">m_hatchSubsystem</span><span class="p">);</span>
+<span class="linenos">22</span>  <span class="p">}</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span>  <span class="nd">@Override</span>
+<span class="linenos">25</span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos">26</span>    <span class="n">m_hatchSubsystem</span><span class="p">.</span><span class="na">grabHatch</span><span class="p">();</span>
+<span class="linenos">27</span>  <span class="p">}</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>  <span class="nd">@Override</span>
+<span class="linenos">30</span>  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFinished</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos">31</span>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="linenos">32</span>  <span class="p">}</span>
+<span class="linenos">33</span><span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-QysrIChIZWFkZXIp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="cp">#pragma once</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandBase.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandHelper.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;subsystems/HatchSubsystem.h&quot;</span><span class="cp"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="cm">/**</span>
+<span class="linenos">13</span><span class="cm"> * A simple command that grabs a hatch with the HatchSubsystem.  Written</span>
+<span class="linenos">14</span><span class="cm"> * explicitly for pedagogical purposes.  Actual code should inline a command</span>
+<span class="linenos">15</span><span class="cm"> * this simple with InstantCommand.</span>
+<span class="linenos">16</span><span class="cm"> *</span>
+<span class="linenos">17</span><span class="cm"> * @see InstantCommand</span>
+<span class="linenos">18</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">19</span><span class="k">class</span><span class="w"> </span><span class="nc">GrabHatch</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandHelper</span><span class="o">&lt;</span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandBase</span><span class="p">,</span><span class="w"> </span><span class="n">GrabHatch</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">20</span><span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">GrabHatch</span><span class="p">(</span><span class="n">HatchSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">subsystem</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsFinished</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">  </span><span class="n">HatchSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">m_hatch</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">29</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-QysrIChTb3VyY2Up" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/GrabHatch.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">GrabHatch</span><span class="o">::</span><span class="n">GrabHatch</span><span class="p">(</span><span class="n">HatchSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">subsystem</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_hatch</span><span class="p">(</span><span class="n">subsystem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="n">AddRequirements</span><span class="p">(</span><span class="n">subsystem</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">void</span><span class="w"> </span><span class="n">GrabHatch</span><span class="o">::</span><span class="n">Initialize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">  </span><span class="n">m_hatch</span><span class="o">-&gt;</span><span class="n">GrabHatch</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">13</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="kt">bool</span><span class="w"> </span><span class="n">GrabHatch</span><span class="o">::</span><span class="n">IsFinished</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>Notice that the hatch subsystem used by the command is passed into the command through the command’s constructor. This is a pattern called <a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>, and allows users to avoid declaring their subsystems as global variables. This is widely accepted as a best-practice - the reasoning behind this is discussed in a <a class="reference internal" href="structuring-command-based-project.html"><span class="doc">later section</span></a>.</p>
+<p>Notice also that the above command calls the subsystem method once from initialize, and then immediately ends (as <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code> simply returns true). This is typical for commands that toggle the states of subsystems, and in fact the command-based library includes code to make <a class="reference internal" href="convenience-features.html#instantcommand"><span class="std std-ref">commands like this</span></a> even more succinctly.</p>
+<p>What about a more complicated case? Below is a drive command, from the same example project:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-2-QysrIChIZWFkZXIp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tab" tabindex="-1">C++ (Header)</button><button aria-controls="panel-2-QysrIChTb3VyY2Up" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tab" tabindex="-1">C++ (Source)</button></div><div aria-labelledby="tab-2-SmF2YQ==" class="sphinx-tabs-panel group-tab" id="panel-2-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="kn">package</span> <span class="nn">edu.wpi.first.wpilibj.examples.hatchbottraditional.commands</span><span class="p">;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.examples.hatchbottraditional.subsystems.DriveSubsystem</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj2.command.CommandBase</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="kn">import</span> <span class="nn">java.util.function.DoubleSupplier</span><span class="p">;</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="cm">/**</span>
+<span class="linenos">12</span><span class="cm"> * A command to drive the robot with joystick input (passed in as {@link DoubleSupplier}s). Written</span>
+<span class="linenos">13</span><span class="cm"> * explicitly for pedagogical purposes - actual code should inline a command this simple with {@link</span>
+<span class="linenos">14</span><span class="cm"> * edu.wpi.first.wpilibj2.command.RunCommand}.</span>
+<span class="linenos">15</span><span class="cm"> */</span>
+<span class="linenos">16</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DefaultDrive</span> <span class="kd">extends</span> <span class="n">CommandBase</span> <span class="p">{</span>
+<span class="linenos">17</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DriveSubsystem</span> <span class="n">m_drive</span><span class="p">;</span>
+<span class="linenos">18</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DoubleSupplier</span> <span class="n">m_forward</span><span class="p">;</span>
+<span class="linenos">19</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DoubleSupplier</span> <span class="n">m_rotation</span><span class="p">;</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>  <span class="cm">/**</span>
+<span class="linenos">22</span><span class="cm">   * Creates a new DefaultDrive.</span>
+<span class="linenos">23</span><span class="cm">   *</span>
+<span class="linenos">24</span><span class="cm">   * @param subsystem The drive subsystem this command wil run on.</span>
+<span class="linenos">25</span><span class="cm">   * @param forward The control input for driving forwards/backwards</span>
+<span class="linenos">26</span><span class="cm">   * @param rotation The control input for turning</span>
+<span class="linenos">27</span><span class="cm">   */</span>
+<span class="linenos">28</span>  <span class="kd">public</span> <span class="nf">DefaultDrive</span><span class="p">(</span><span class="n">DriveSubsystem</span> <span class="n">subsystem</span><span class="p">,</span> <span class="n">DoubleSupplier</span> <span class="n">forward</span><span class="p">,</span> <span class="n">DoubleSupplier</span> <span class="n">rotation</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">29</span>    <span class="n">m_drive</span> <span class="o">=</span> <span class="n">subsystem</span><span class="p">;</span>
+<span class="linenos">30</span>    <span class="n">m_forward</span> <span class="o">=</span> <span class="n">forward</span><span class="p">;</span>
+<span class="linenos">31</span>    <span class="n">m_rotation</span> <span class="o">=</span> <span class="n">rotation</span><span class="p">;</span>
+<span class="linenos">32</span>    <span class="n">addRequirements</span><span class="p">(</span><span class="n">m_drive</span><span class="p">);</span>
+<span class="linenos">33</span>  <span class="p">}</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span>  <span class="nd">@Override</span>
+<span class="linenos">36</span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos">37</span>    <span class="n">m_drive</span><span class="p">.</span><span class="na">arcadeDrive</span><span class="p">(</span><span class="n">m_forward</span><span class="p">.</span><span class="na">getAsDouble</span><span class="p">(),</span> <span class="n">m_rotation</span><span class="p">.</span><span class="na">getAsDouble</span><span class="p">());</span>
+<span class="linenos">38</span>  <span class="p">}</span>
+<span class="linenos">39</span><span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-QysrIChIZWFkZXIp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="cp">#pragma once</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandBase.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;frc2/command/CommandHelper.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;subsystems/DriveSubsystem.h&quot;</span><span class="cp"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="cm">/**</span>
+<span class="linenos">13</span><span class="cm"> * A command to drive the robot with joystick input passed in through lambdas.</span>
+<span class="linenos">14</span><span class="cm"> * Written explicitly for pedagogical purposes - actual code should inline a</span>
+<span class="linenos">15</span><span class="cm"> * command this simple with RunCommand.</span>
+<span class="linenos">16</span><span class="cm"> *</span>
+<span class="linenos">17</span><span class="cm"> * @see RunCommand</span>
+<span class="linenos">18</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">19</span><span class="k">class</span><span class="w"> </span><span class="nc">DefaultDrive</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandHelper</span><span class="o">&lt;</span><span class="n">frc2</span><span class="o">::</span><span class="n">CommandBase</span><span class="p">,</span><span class="w"> </span><span class="n">DefaultDrive</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">21</span><span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">  </span><span class="cm">/**</span>
+<span class="linenos">23</span><span class="cm">   * Creates a new DefaultDrive.</span>
+<span class="linenos">24</span><span class="cm">   *</span>
+<span class="linenos">25</span><span class="cm">   * @param subsystem The drive subsystem this command wil run on.</span>
+<span class="linenos">26</span><span class="cm">   * @param forward The control input for driving forwards/backwards</span>
+<span class="linenos">27</span><span class="cm">   * @param rotation The control input for turning</span>
+<span class="linenos">28</span><span class="cm">   */</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">  </span><span class="n">DefaultDrive</span><span class="p">(</span><span class="n">DriveSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">subsystem</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">forward</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">               </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rotation</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Execute</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">  </span><span class="n">DriveSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">m_drive</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_forward</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_rotation</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">38</span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-QysrIChTb3VyY2Up" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;commands/DefaultDrive.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">DefaultDrive</span><span class="o">::</span><span class="n">DefaultDrive</span><span class="p">(</span><span class="n">DriveSubsystem</span><span class="o">*</span><span class="w"> </span><span class="n">subsystem</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">                           </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">forward</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">                           </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rotation</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">m_drive</span><span class="p">{</span><span class="n">subsystem</span><span class="p">},</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">      </span><span class="n">m_forward</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">forward</span><span class="p">)},</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">      </span><span class="n">m_rotation</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">rotation</span><span class="p">)}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">  </span><span class="n">AddRequirements</span><span class="p">({</span><span class="n">subsystem</span><span class="p">});</span><span class="w"></span>
+<span class="linenos">16</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="kt">void</span><span class="w"> </span><span class="n">DefaultDrive</span><span class="o">::</span><span class="n">Execute</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">  </span><span class="n">m_drive</span><span class="o">-&gt;</span><span class="n">ArcadeDrive</span><span class="p">(</span><span class="n">m_forward</span><span class="p">(),</span><span class="w"> </span><span class="n">m_rotation</span><span class="p">());</span><span class="w"></span>
+<span class="linenos">20</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>Notice that this command does not override <code class="docutils literal notranslate"><span class="pre">isFinished()</span></code>, and thus will never end; this is the norm for commands that are intended to be used as default commands (and, as can be guessed, the library includes tools to make <a class="reference internal" href="convenience-features.html#runcommand"><span class="std std-ref">this kind of command</span></a> easier to write, too!).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="subsystems.html" class="btn btn-neutral float-left" title="Subsystems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="command-groups.html" class="btn btn-neutral float-right" title="Command Groups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>

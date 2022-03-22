@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="Convenience Features" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="While the previously-described methodologies will work fine for writing command-based robot code, the command-based libraries contain several convenience features for more-advanced users that can g..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/software/commandbased/convenience-features.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/software/commandbased/convenience-features.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convenience Features &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="../../../_static/js/present.js"></script>
+        <script src="../../../_static/js/hoverxref.js"></script>
+        <script src="../../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../../_static/js/micromodal.min.js"></script>
+        <script src="../../../_static/js/versionwarning.js"></script>
+        <script src="../../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../../_static/js/version-2014.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PID Control through PIDSubsystems and PIDCommands" href="pid-subsystems-commands.html" />
+    <link rel="prev" title="Structuring a Command-Based Robot Project" href="structuring-command-based-project.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yearly-overview/index.html">2022 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wpilib-tools/axon/index.html">Axon</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command-Based Programming</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command-based-changes.html">2020 Command-Based Rewrite: What Changed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html">What Is “Command-Based” Programming?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what-is-command-based.html#creating-a-robot-project">Creating a Robot Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems.html">Subsystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-groups.html">Command Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command-scheduler.html">The Command Scheduler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binding-commands-to-triggers.html">Binding Commands to Triggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structuring-command-based-project.html">Structuring a Command-Based Robot Project</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Convenience Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pid-subsystems-commands.html">PID Control through PIDSubsystems and PIDCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile-subsystems-commands.html">Motion Profiling through TrapezoidProfileSubsystems and TrapezoidProfileCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profilepid-subsystems-commands.html">Combining Motion Profiling and PID in Command-Based</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp-command-discussion.html">A Technical Discussion on C++ Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-controls/index.html">Advanced Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Command-Based Programming</a> &raquo;</li>
+      <li>Convenience Features</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/software/commandbased/convenience-features.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="convenience-features">
+<h1>Convenience Features<a class="headerlink" href="#convenience-features" title="Permalink to this headline"></a></h1>
+<p>While the previously-described methodologies will work fine for writing command-based robot code, the command-based libraries contain several convenience features for more-advanced users that can greatly reduce the verbosity/complexity of command-based code. It is highly recommended that users familiarize themselves with these features to maximize the value they get out of the command-based libraries.</p>
+<div class="section" id="inline-command-definitions">
+<h2>Inline Command Definitions<a class="headerlink" href="#inline-command-definitions" title="Permalink to this headline"></a></h2>
+<p>While users are able to create commands by explicitly writing command classes (either by subclassing <code class="docutils literal notranslate"><span class="pre">CommandBase</span></code> or implementing <code class="docutils literal notranslate"><span class="pre">Command</span></code>), for many commands (such as those that simply call a single subsystem method) this involves a lot of wasteful boilerplate code. To help alleviate this, many of the prewritten commands included in the command-based library may be <em>inlined</em> - that is, the command body can be defined in a single line of code at command construction.</p>
+<div class="section" id="passing-subroutines-as-parameters">
+<h3>Passing Subroutines As Parameters<a class="headerlink" href="#passing-subroutines-as-parameters" title="Permalink to this headline"></a></h3>
+<p>In order to inline a command definition, users require some way to specify what code the commands will run as constructor parameters. Fortunately, both Java and C++ offer users the ability to pass subroutines as parameters.</p>
+<div class="section" id="method-references-java">
+<h4>Method References (Java)<a class="headerlink" href="#method-references-java" title="Permalink to this headline"></a></h4>
+<p>In Java, a reference to a subroutine that can be passed as a parameter is called a method reference. The general syntax for a method reference is <code class="docutils literal notranslate"><span class="pre">object::method</span></code>. Note that no method parameters are included, since the method <em>itself</em> is the parameter. The method is not being called - it is being passed to another piece of code (in this case, a command) so that <em>that</em> code can call it when needed. For further information on method references, see <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">the official Oracle documentation</a>.</p>
+</div>
+<div class="section" id="lambda-expressions-java">
+<h4>Lambda Expressions (Java)<a class="headerlink" href="#lambda-expressions-java" title="Permalink to this headline"></a></h4>
+<p>While method references work well for passing a subroutine that has already been written, often it is inconvenient/wasteful to write a subroutine solely for the purpose of sending as a method reference, if that subroutine will never be used elsewhere. To avoid this, Java also supports a feature called “lambda expressions.” A lambda expression is an inline method definition - it allows a subroutine to be defined <em>inside of a parameter list</em>. For specifics on how to write Java lambda expressions, see <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#syntax">this tutorial</a>.</p>
+</div>
+<div class="section" id="lambda-expressions-c">
+<h4>Lambda Expressions (C++)<a class="headerlink" href="#lambda-expressions-c" title="Permalink to this headline"></a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to complications in C++ semantics, capturing <code class="docutils literal notranslate"><span class="pre">this</span></code> in a C++ lambda can cause a null pointer exception if done from a component command of a command group.  Whenever possible, C++ users should capture relevant command members explicitly and by value.  For more details, see <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/issues/3109">here</a>.</p>
+</div>
+<p>C++ lacks a close equivalent to Java method references - pointers to member functions are generally not directly useable as parameters due to the presence of the implicit <code class="docutils literal notranslate"><span class="pre">this</span></code> parameter.  However, C++ does offer lambda expressions - in addition, the lambda expressions offered by C++ are in many ways more powerful than those in Java.  For specifics on how to write C++ lambda expressions, see <a class="reference external" href="https://en.cppreference.com/w/cpp/language/lambda">cppreference</a>.</p>
+</div>
+</div>
+<div class="section" id="inlined-command-example">
+<h3>Inlined Command Example<a class="headerlink" href="#inlined-command-example" title="Permalink to this headline"></a></h3>
+<p>So, what does an inlined command definition look like in practice?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">InstantCommand</span></code> class provides an example of a type of command that benefits greatly from inlining. Consider the following from the HatchBotInlined example project (<a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbotinlined">Java</a>, <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibcExamples/src/main/cpp/examples/HatchbotInlined">C++</a>):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-0-QysrIChIZWFkZXIp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tab" tabindex="-1">C++ (Header)</button><button aria-controls="panel-0-QysrIChTb3VyY2Up" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tab" tabindex="-1">C++ (Source)</button></div><div aria-labelledby="tab-0-SmF2YQ==" class="sphinx-tabs-panel group-tab" id="panel-0-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos">90</span>    <span class="c1">// Grab the hatch when the Circle button is pressed.</span>
+<span class="linenos">91</span>    <span class="k">new</span> <span class="n">JoystickButton</span><span class="p">(</span><span class="n">m_driverController</span><span class="p">,</span> <span class="n">Button</span><span class="p">.</span><span class="na">kCircle</span><span class="p">.</span><span class="na">value</span><span class="p">)</span>
+<span class="linenos">92</span>        <span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="k">new</span> <span class="n">InstantCommand</span><span class="p">(</span><span class="n">m_hatchSubsystem</span><span class="p">::</span><span class="n">grabHatch</span><span class="p">,</span> <span class="n">m_hatchSubsystem</span><span class="p">));</span>
+<span class="linenos">93</span>    <span class="c1">// Release the hatch when the Square button is pressed.</span>
+<span class="linenos">94</span>    <span class="k">new</span> <span class="n">JoystickButton</span><span class="p">(</span><span class="n">m_driverController</span><span class="p">,</span> <span class="n">Button</span><span class="p">.</span><span class="na">kSquare</span><span class="p">.</span><span class="na">value</span><span class="p">)</span>
+<span class="linenos">95</span>        <span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="k">new</span> <span class="n">InstantCommand</span><span class="p">(</span><span class="n">m_hatchSubsystem</span><span class="p">::</span><span class="n">releaseHatch</span><span class="p">,</span> <span class="n">m_hatchSubsystem</span><span class="p">));</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-QysrIChIZWFkZXIp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">66</span><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="w"> </span><span class="n">m_grabHatch</span><span class="p">{[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_hatch</span><span class="p">.</span><span class="n">GrabHatch</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_hatch</span><span class="p">}};</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="w"> </span><span class="n">m_releaseHatch</span><span class="p">{[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_hatch</span><span class="p">.</span><span class="n">ReleaseHatch</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">                                      </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_hatch</span><span class="p">}};</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-QysrIChTb3VyY2Up" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-QysrIChTb3VyY2Up" name="QysrIChTb3VyY2Up" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">35</span><span class="w">  </span><span class="c1">// Grab the hatch when the &#39;Circle&#39; button is pressed.</span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">JoystickButton</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_driverController</span><span class="p">,</span><span class="w"> </span><span class="n">frc</span><span class="o">::</span><span class="n">PS4Controller</span><span class="o">::</span><span class="n">Button</span><span class="o">::</span><span class="n">kCircle</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">      </span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_grabHatch</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">  </span><span class="c1">// Release the hatch when the &#39;Square&#39; button is pressed.</span>
+<span class="linenos">39</span><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">JoystickButton</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_driverController</span><span class="p">,</span><span class="w"> </span><span class="n">frc</span><span class="o">::</span><span class="n">PS4Controller</span><span class="o">::</span><span class="n">Button</span><span class="o">::</span><span class="n">kSquare</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">      </span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m_releaseHatch</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>Instead of wastefully writing separate <code class="docutils literal notranslate"><span class="pre">GrabHatch</span></code> and <code class="docutils literal notranslate"><span class="pre">ReleaseHatch</span></code> commands which call only one method before ending, both can be accomplished with a simple inline definition by passing appropriate subsystem method.</p>
+</div>
+</div>
+<div class="section" id="included-command-types">
+<h2>Included Command Types<a class="headerlink" href="#included-command-types" title="Permalink to this headline"></a></h2>
+<p>The command-based library includes a variety of pre-written commands for commonly-encountered use cases. Many of these commands are intended to be used “out-of-the-box” via <a class="reference external" href="#inline-command-definitions">inlining</a>, however they may be subclassed, as well. A list of the included pre-made commands can be found below, along with brief examples of each - for more rigorous documentation, see the API docs (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/package-summary.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html">C++</a>).</p>
+<div class="section" id="conditionalcommand">
+<h3>ConditionalCommand<a class="headerlink" href="#conditionalcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ConditionalCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/ConditionalCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_conditional_command.html">C++</a>) runs one of two commands when executed, depending on a user-specified true-or-false condition:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-1-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Runs either commandOnTrue or commandOnFalse depending on the value of m_limitSwitch.get()</span>
+<span class="k">new</span> <span class="n">ConditionalCommand</span><span class="p">(</span><span class="n">commandOnTrue</span><span class="p">,</span> <span class="n">commandOnFalse</span><span class="p">,</span> <span class="n">m_limitSwitch</span><span class="p">::</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Runs either commandOnTrue or commandOnFalse depending on the value of m_limitSwitch.get()</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">ConditionalCommand</span><span class="p">(</span><span class="n">commandOnTrue</span><span class="p">,</span><span class="w"> </span><span class="n">commandOnFalse</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="n">m_limitSwitch</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_limitSwitch</span><span class="p">.</span><span class="n">Get</span><span class="p">();</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="selectcommand">
+<h3>SelectCommand<a class="headerlink" href="#selectcommand" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the Java version of SelectCommand simply uses an <code class="docutils literal notranslate"><span class="pre">Object</span></code> as a key, the C++ version is templated on the key type.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An alternate version of SelectCommand simply takes a method that supplies the command to be run - this can be very succinct, but makes inferring the command’s requirements impossible, and so leaves the user responsible for manually adding the requirements to the SelectCommand.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">SelectCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/SelectCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_select_command.html">C++</a>) is a generalization of the <code class="docutils literal notranslate"><span class="pre">ConditionalCommand</span></code> class that runs one of a selection of commands based on the value of a user-specified selector.  The following example code is taken from the SelectCommand example project (<a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/selectcommand">Java</a>, <a class="reference external" href="https://github.com/wpilibsuite/allwpilib/tree/main/wpilibcExamples/src/main/cpp/examples/SelectCommand">C++</a>):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-2-QysrIChIZWFkZXIp" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tab" tabindex="-1">C++ (Header)</button></div><div aria-labelledby="tab-2-SmF2YQ==" class="sphinx-tabs-panel group-tab" id="panel-2-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="linenos">20</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RobotContainer</span> <span class="p">{</span>
+<span class="linenos">21</span>  <span class="c1">// The enum used as keys for selecting the command to run.</span>
+<span class="linenos">22</span>  <span class="kd">private</span> <span class="kd">enum</span> <span class="n">CommandSelector</span> <span class="p">{</span>
+<span class="linenos">23</span>    <span class="n">ONE</span><span class="p">,</span>
+<span class="linenos">24</span>    <span class="n">TWO</span><span class="p">,</span>
+<span class="linenos">25</span>    <span class="n">THREE</span>
+<span class="linenos">26</span>  <span class="p">}</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>  <span class="c1">// An example selector method for the selectcommand.  Returns the selector that will select</span>
+<span class="linenos">29</span>  <span class="c1">// which command to run.  Can base this choice on logical conditions evaluated at runtime.</span>
+<span class="linenos">30</span>  <span class="kd">private</span> <span class="n">CommandSelector</span> <span class="nf">select</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos">31</span>    <span class="k">return</span> <span class="n">CommandSelector</span><span class="p">.</span><span class="na">ONE</span><span class="p">;</span>
+<span class="linenos">32</span>  <span class="p">}</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span>  <span class="c1">// An example selectcommand.  Will select from the three commands based on the value returned</span>
+<span class="linenos">35</span>  <span class="c1">// by the selector method at runtime.  Note that selectcommand works on Object(), so the</span>
+<span class="linenos">36</span>  <span class="c1">// selector does not have to be an enum; it could be any desired type (string, integer,</span>
+<span class="linenos">37</span>  <span class="c1">// boolean, double...)</span>
+<span class="linenos">38</span>  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Command</span> <span class="n">m_exampleSelectCommand</span> <span class="o">=</span>
+<span class="linenos">39</span>      <span class="k">new</span> <span class="n">SelectCommand</span><span class="p">(</span>
+<span class="linenos">40</span>          <span class="c1">// Maps selector values to commands</span>
+<span class="linenos">41</span>          <span class="n">Map</span><span class="p">.</span><span class="na">ofEntries</span><span class="p">(</span>
+<span class="linenos">42</span>              <span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">CommandSelector</span><span class="p">.</span><span class="na">ONE</span><span class="p">,</span> <span class="k">new</span> <span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;Command one was selected!&quot;</span><span class="p">)),</span>
+<span class="linenos">43</span>              <span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">CommandSelector</span><span class="p">.</span><span class="na">TWO</span><span class="p">,</span> <span class="k">new</span> <span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;Command two was selected!&quot;</span><span class="p">)),</span>
+<span class="linenos">44</span>              <span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">CommandSelector</span><span class="p">.</span><span class="na">THREE</span><span class="p">,</span> <span class="k">new</span> <span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;Command three was selected!&quot;</span><span class="p">))),</span>
+<span class="linenos">45</span>          <span class="k">this</span><span class="p">::</span><span class="n">select</span><span class="p">);</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-QysrIChIZWFkZXIp" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-QysrIChIZWFkZXIp" name="QysrIChIZWFkZXIp" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">25</span><span class="w">  </span><span class="c1">// The enum used as keys for selecting the command to run.</span>
+<span class="linenos">26</span><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="nc">CommandSelector</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ONE</span><span class="p">,</span><span class="w"> </span><span class="n">TWO</span><span class="p">,</span><span class="w"> </span><span class="n">THREE</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">  </span><span class="c1">// An example selector method for the selectcommand.  Returns the selector</span>
+<span class="linenos">29</span><span class="w">  </span><span class="c1">// that will select which command to run.  Can base this choice on logical</span>
+<span class="linenos">30</span><span class="w">  </span><span class="c1">// conditions evaluated at runtime.</span>
+<span class="linenos">31</span><span class="w">  </span><span class="n">CommandSelector</span><span class="w"> </span><span class="nf">Select</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ONE</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="w">  </span><span class="c1">// The robot&#39;s subsystems and commands are defined here...</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">  </span><span class="c1">// An example selectcommand.  Will select from the three commands based on the</span>
+<span class="linenos">36</span><span class="w">  </span><span class="c1">// value returned by the selector method at runtime.  Note that selectcommand</span>
+<span class="linenos">37</span><span class="w">  </span><span class="c1">// takes a generic type, so the selector does not have to be an enum; it could</span>
+<span class="linenos">38</span><span class="w">  </span><span class="c1">// be any desired type (string, integer, boolean, double...)</span>
+<span class="linenos">39</span><span class="w">  </span><span class="n">frc2</span><span class="o">::</span><span class="n">SelectCommand</span><span class="o">&lt;</span><span class="n">CommandSelector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_exampleSelectCommand</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">      </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Select</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">      </span><span class="c1">// Maps selector values to commands</span>
+<span class="linenos">42</span><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="p">{</span><span class="n">ONE</span><span class="p">,</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">PrintCommand</span><span class="p">{</span><span class="s">&quot;Command one was selected!&quot;</span><span class="p">}},</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="p">{</span><span class="n">TWO</span><span class="p">,</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">PrintCommand</span><span class="p">{</span><span class="s">&quot;Command two was selected!&quot;</span><span class="p">}},</span><span class="w"></span>
+<span class="linenos">44</span><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="p">{</span><span class="n">THREE</span><span class="p">,</span><span class="w"> </span><span class="n">frc2</span><span class="o">::</span><span class="n">PrintCommand</span><span class="p">{</span><span class="s">&quot;Command three was selected!&quot;</span><span class="p">}}};</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="instantcommand">
+<h3>InstantCommand<a class="headerlink" href="#instantcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">InstantCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/InstantCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_instant_command.html">C++</a>) executes a single action on initialization, and then ends immediately:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-3-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-3-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-3-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-3-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-3-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Actuates the hatch subsystem to grab the hatch</span>
+<span class="k">new</span> <span class="n">InstantCommand</span><span class="p">(</span><span class="n">m_hatchSubsystem</span><span class="p">::</span><span class="n">grabHatch</span><span class="p">,</span> <span class="n">m_hatchSubsystem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-3-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Actuates the hatch subsystem to grab the hatch</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">InstantCommand</span><span class="p">([</span><span class="o">&amp;</span><span class="n">m_hatchSubsystem</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_hatchSubsystem</span><span class="p">.</span><span class="n">GrabHatch</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_hatchSubsystem</span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="runcommand">
+<h3>RunCommand<a class="headerlink" href="#runcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">RunCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/RunCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_run_command.html">C++</a>) runs a specified method repeatedly in its <code class="docutils literal notranslate"><span class="pre">execute()</span></code> block. It does not have end conditions by default; users can either subclass it, or <a class="reference external" href="#command-decorator-methods">decorate</a> it to add them.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-4-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-4-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-4-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-4-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-4-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// A split-stick arcade command, with forward/backward controlled by the left</span>
+<span class="c1">// hand, and turning controlled by the right.</span>
+<span class="k">new</span> <span class="n">RunCommand</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">m_robotDrive</span><span class="p">.</span><span class="na">arcadeDrive</span><span class="p">(</span>
+    <span class="o">-</span><span class="n">driverController</span><span class="p">.</span><span class="na">getY</span><span class="p">(</span><span class="n">GenericHID</span><span class="p">.</span><span class="na">Hand</span><span class="p">.</span><span class="na">kLeft</span><span class="p">),</span>
+    <span class="n">driverController</span><span class="p">.</span><span class="na">getX</span><span class="p">(</span><span class="n">GenericHID</span><span class="p">.</span><span class="na">Hand</span><span class="p">.</span><span class="na">kRight</span><span class="p">)),</span>
+    <span class="n">m_robotDrive</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-4-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// A split-stick arcade command, with forward/backward controlled by the left</span>
+<span class="c1">// hand, and turning controlled by the right.</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">RunCommand</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">m_drive</span><span class="p">.</span><span class="n">ArcadeDrive</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="o">-</span><span class="n">m_driverController</span><span class="p">.</span><span class="n">GetY</span><span class="p">(</span><span class="n">frc</span><span class="o">::</span><span class="n">GenericHID</span><span class="o">::</span><span class="n">kLeftHand</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="n">m_driverController</span><span class="p">.</span><span class="n">GetX</span><span class="p">(</span><span class="n">frc</span><span class="o">::</span><span class="n">GenericHID</span><span class="o">::</span><span class="n">kRightHand</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}))</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="startendcommand">
+<h3>StartEndCommand<a class="headerlink" href="#startendcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">StartEndCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/StartEndCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_start_end_command.html">C++</a>) executes an action when starting, and a second one when ending. It does not have end conditions by default; users can either subclass it, or <a class="reference external" href="#command-decorator-methods">decorate</a> an inlined command to add them.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-5-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-5-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-5-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-5-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-5-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">StartEndCommand</span><span class="p">(</span>
+    <span class="c1">// Start a flywheel spinning at 50% power</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">m_shooter</span><span class="p">.</span><span class="na">shooterSpeed</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="c1">// Stop the flywheel at the end of the command</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">m_shooter</span><span class="p">.</span><span class="na">shooterSpeed</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span>
+    <span class="c1">// Requires the shooter subsystem</span>
+    <span class="n">m_shooter</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-5-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-5-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">frc2</span><span class="o">::</span><span class="n">StartEndCommand</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Start a flywheel spinning at 50% power</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_shooter</span><span class="p">.</span><span class="n">shooterSpeed</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Stop the flywheel at the end of the command</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_shooter</span><span class="p">.</span><span class="n">shooterSpeed</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Requires the shooter subsystem</span>
+<span class="w">  </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_shooter</span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="functionalcommand">
+<h3>FunctionalCommand<a class="headerlink" href="#functionalcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">FunctionalCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/FunctionalCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_functional_command.html">C++</a>) allows all four <code class="docutils literal notranslate"><span class="pre">Command</span></code> methods to be passed in as method references or lambdas:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-6-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-6-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-6-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-6-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-6-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-6-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">FunctionalCommand</span><span class="p">(</span>
+    <span class="c1">// Reset encoders on command start</span>
+    <span class="n">m_robotDrive</span><span class="p">::</span><span class="n">resetEncoders</span><span class="p">,</span>
+    <span class="c1">// Start driving forward at the start of the command</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">m_robotDrive</span><span class="p">.</span><span class="na">arcadeDrive</span><span class="p">(</span><span class="n">kAutoDriveSpeed</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="c1">// Stop driving at the end of the command</span>
+    <span class="n">interrupted</span> <span class="o">-&gt;</span> <span class="n">m_robotDrive</span><span class="p">.</span><span class="na">arcadeDrive</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="c1">// End the command when the robot&#39;s driven distance exceeds the desired value</span>
+    <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">m_robotDrive</span><span class="p">.</span><span class="na">getAverageEncoderDistance</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">kAutoDriveDistanceInches</span><span class="p">,</span>
+    <span class="c1">// Require the drive subsystem</span>
+    <span class="n">m_robotDrive</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-6-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-6-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">frc2</span><span class="o">::</span><span class="n">FunctionalCommand</span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Reset encoders on command start</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_drive</span><span class="p">.</span><span class="n">ResetEncoders</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Start driving forward at the start of the command</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_drive</span><span class="p">.</span><span class="n">ArcadeDrive</span><span class="p">(</span><span class="n">ac</span><span class="o">::</span><span class="n">kAutoDriveSpeed</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Stop driving at the end of the command</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">interrupted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">m_drive</span><span class="p">.</span><span class="n">ArcadeDrive</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// End the command when the robot&#39;s driven distance exceeds the desired value</span>
+<span class="w">  </span><span class="p">[</span><span class="k">this</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_drive</span><span class="p">.</span><span class="n">GetAverageEncoderDistance</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">kAutoDriveDistanceInches</span><span class="p">;</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Requires the drive subsystem</span>
+<span class="w">  </span><span class="p">{</span><span class="o">&amp;</span><span class="n">m_drive</span><span class="p">}</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="printcommand">
+<h3>PrintCommand<a class="headerlink" href="#printcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PrintCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/PrintCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_print_command.html">C++</a>) prints a given string.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-7-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-7-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-7-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-7-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-7-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;This message will be printed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-7-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-7-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">frc2</span><span class="o">::</span><span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;This message will be printed!&quot;</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="schedulecommand">
+<h3>ScheduleCommand<a class="headerlink" href="#schedulecommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ScheduleCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/ScheduleCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_schedule_command.html">C++</a>) schedules a specified command, and ends instantly:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-8-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-8-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-8-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-8-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-8-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-8-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Schedules commandToSchedule when run</span>
+<span class="k">new</span> <span class="n">ScheduleCommand</span><span class="p">(</span><span class="n">commandToSchedule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-8-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-8-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Schedules commandToSchedule when run</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">ScheduleCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="n">commandToSchedule</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>This is often useful for “forking off” from command groups: by default, commands in command groups are run <em>through</em> the command group, and are never themselves seen by the scheduler.  Accordingly, their requirements are added to the group’s requirements.  While this is usually fine, sometimes it is undesirable for the entire command group to gain the requirements of a single command - a good solution is to “fork off” from the command group and schedule that command separately.</p>
+</div>
+<div class="section" id="proxyschedulecommand">
+<h3>ProxyScheduleCommand<a class="headerlink" href="#proxyschedulecommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ProxyScheduleCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/ProxyScheduleCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_proxy_schedule_command.html">C++</a>) schedules a specified command, and does not end until that command ends:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-9-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-9-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-9-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-9-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-9-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-9-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Schedules commandToSchedule when run, does not end until commandToSchedule is no longer scheduled</span>
+<span class="k">new</span> <span class="n">ProxyScheduleCommand</span><span class="p">(</span><span class="n">commandToSchedule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-9-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-9-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Schedules commandToSchedule when run, does not end until commandToSchedule is no longer scheduled</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">ProxyScheduleCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="n">commandToSchedule</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>This is often useful for “forking off” from command groups: by default, commands in command groups are run <em>through</em> the command group, and are never themselves seen by the scheduler.  Accordingly, their requirements are added to the group’s requirements.  While this is usually fine, sometimes it is undesirable for the entire command group to gain the requirements of a single command - a good solution is to “fork off” from the command group and schedule the command separately.</p>
+</div>
+<div class="section" id="waitcommand">
+<h3>WaitCommand<a class="headerlink" href="#waitcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/WaitCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_wait_command.html">C++</a>) does nothing, and ends after a specified period of time elapses after its initial scheduling:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-10-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-10-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-10-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-10-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-10-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-10-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ends 5 seconds after being scheduled</span>
+<span class="k">new</span> <span class="n">WaitCommand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-10-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-10-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ends 5 seconds after being scheduled</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">WaitCommand</span><span class="p">(</span><span class="mf">5.0</span><span class="n">_s</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>This is often useful as a component of a command group.</p>
+<p><code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code> can also be subclassed to create a more complicated command that runs for a period of time. If <code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code> is used in this method, the user must ensure that the <code class="docutils literal notranslate"><span class="pre">WaitCommand</span></code>’s <code class="docutils literal notranslate"><span class="pre">Initialize</span></code>, <code class="docutils literal notranslate"><span class="pre">End</span></code>, and <code class="docutils literal notranslate"><span class="pre">IsFinished</span></code> methods are still called in order for the WaitCommand’s timer to work.</p>
+</div>
+<div class="section" id="waituntilcommand">
+<h3>WaitUntilCommand<a class="headerlink" href="#waituntilcommand" title="Permalink to this headline"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The match timer used by WaitUntilCommand does <em>not</em> provide an official match time!  While it is fairly accurate, use of this timer can <em>not</em> guarantee the legality of your robot’s actions.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">WaitUntilCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/WaitUntilCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_wait_until_command.html">C++</a>) does nothing, and ends once a specified condition becomes true, or until a specified match time passes.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-11-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-11-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-11-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-11-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-11-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-11-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ends after the 60-second mark of the current match</span>
+<span class="k">new</span> <span class="n">WaitUntilCommand</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1">// Ends after m_limitSwitch.get() returns true</span>
+<span class="k">new</span> <span class="n">WaitUntilCommand</span><span class="p">(</span><span class="n">m_limitSwitch</span><span class="p">::</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-11-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-11-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ends after the 60-second mark of the current match</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">WaitUntilCommand</span><span class="p">(</span><span class="mf">60.0</span><span class="n">_s</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">// Ends after m_limitSwitch.Get() returns true</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">WaitUntilCommand</span><span class="p">([</span><span class="o">&amp;</span><span class="n">m_limitSwitch</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_limitSwitch</span><span class="p">.</span><span class="n">Get</span><span class="p">();</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="perpetualcommand">
+<h3>PerpetualCommand<a class="headerlink" href="#perpetualcommand" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PerpetualCommand</span></code> class (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/PerpetualCommand.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_perpetual_command.html">C++</a>) runs a given command with its end condition removed, so that it runs forever (unless externally interrupted):</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-12-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-12-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-12-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-12-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-12-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-12-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will run commandToRunForever perpetually, even if its isFinished() method returns true</span>
+<span class="k">new</span> <span class="n">PerpetualCommand</span><span class="p">(</span><span class="n">commandToRunForever</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-12-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-12-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will run commandToRunForever perpetually, even if its isFinished() method returns true</span>
+<span class="n">frc2</span><span class="o">::</span><span class="n">PerpetualCommand</span><span class="p">(</span><span class="n">commandToRunForever</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="section" id="command-decorator-methods">
+<h2>Command Decorator Methods<a class="headerlink" href="#command-decorator-methods" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Command</span></code> interface contains a number of defaulted “decorator”
+methods which can be used to add additional functionality to existing
+commands. A “decorator” method is a method that takes an object (in this
+case, a command) and returns an object of the same type (i.e. a command)
+with some additional functionality added to it. A list of the included
+decorator methods with brief examples is included below - for rigorous
+documentation, see the API docs (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html">C++</a>).</p>
+<div class="section" id="withtimeout">
+<h3>withTimeout<a class="headerlink" href="#withtimeout" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">withTimeout()</span></code> decorator (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#withTimeout(double)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#a7d1ba6905ebca2f7e000942b318b59ae">C++</a>) adds a timeout to a command. The
+decorated command will be interrupted if the timeout expires:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-13-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-13-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-13-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-13-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-13-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-13-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will time out 5 seconds after being scheduled, and be interrupted</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="na">withTimeout</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-13-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-13-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will time out 5 seconds after being scheduled, and be interrupted</span>
+<span class="n">button</span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="mf">5.0</span><span class="n">_s</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="until-withinterrupt">
+<h3>until/withInterrupt<a class="headerlink" href="#until-withinterrupt" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">until()</span></code> (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#until(java.util.function.BooleanSupplier)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#a1617d60548cc8a75c12f5ddfe8e3c38c">C++</a>) decorator adds a condition on which the command will be interrupted:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-14-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-14-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-14-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-14-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-14-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-14-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will be interrupted if m_limitSwitch.get() returns true</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="na">until</span><span class="p">(</span><span class="n">m_limitSwitch</span><span class="p">::</span><span class="n">get</span><span class="p">));</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-14-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-14-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will be interrupted if m_limitSwitch.get() returns true</span>
+<span class="n">button</span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">Until</span><span class="p">([</span><span class="o">&amp;</span><span class="n">m_limitSwitch</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_limitSwitch</span><span class="p">.</span><span class="n">Get</span><span class="p">();</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p><code class="docutils literal notranslate"><span class="pre">withInterrupt()</span></code> is an alias for <code class="docutils literal notranslate"><span class="pre">until()</span></code>.</p>
+</div>
+<div class="section" id="andthen">
+<h3>andThen<a class="headerlink" href="#andthen" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">andThen()</span></code> decorator (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#andThen(edu.wpi.first.wpilibj2.command.Command...)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#ab0cc63118f578b328222ab2e9f1b7b65">C++</a>) adds a method to be executed after the command ends:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-15-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-15-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-15-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-15-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-15-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-15-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will print &quot;hello&quot; after ending</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="na">andThen</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-15-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-15-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will print &quot;hello&quot; after ending</span>
+<span class="n">button</span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">AndThen</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="beforestarting">
+<h3>beforeStarting<a class="headerlink" href="#beforestarting" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">beforeStarting()</span></code> decorator (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#beforeStarting(edu.wpi.first.wpilibj2.command.Command)">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#ab8d1d6ccf24f90ffa9be270544dd7162">C++</a>) adds a method to be executed before the command starts:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-16-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-16-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-16-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-16-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-16-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-16-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will print &quot;hello&quot; before starting</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="na">beforeStarting</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-16-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-16-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will print &quot;hello&quot; before starting</span>
+<span class="n">button</span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">BeforeStarting</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="alongwith-java-only">
+<h3>alongWith (Java only)<a class="headerlink" href="#alongwith-java-only" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This decorator is not supported in C++ due to technical constraints - users should simply construct a parallel command group the ordinary way instead.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">alongWith()</span></code> <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#alongWith(edu.wpi.first.wpilibj2.command.Command...)">decorator</a> returns a <a class="reference internal" href="command-groups.html#parallelcommandgroup"><span class="std std-ref">parallel command group</span></a>. All commands will execute at the same time and each will end independently of each other:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will be a parallel command group that ends after three seconds with all three commands running their full duration.</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">oneSecCommand</span><span class="p">.</span><span class="na">alongWith</span><span class="p">(</span><span class="n">twoSecCommand</span><span class="p">,</span> <span class="n">threeSecCommand</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="racewith-java-only">
+<h3>raceWith (Java only)<a class="headerlink" href="#racewith-java-only" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This decorator is not supported in C++ due to technical constraints - users should simply construct a parallel race group the ordinary way instead.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">raceWith()</span></code> <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#raceWith(edu.wpi.first.wpilibj2.command.Command...)">decorator</a> returns a <a class="reference internal" href="command-groups.html#parallelracegroup"><span class="std std-ref">parallel race group</span></a> that ends as soon as the first command ends.  At this point all others are interrupted.  It doesn’t matter which command is the calling command:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will be a parallel race group that ends after one second with the two and three second commands getting interrupted.</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">twoSecCommand</span><span class="p">.</span><span class="na">raceWith</span><span class="p">(</span><span class="n">oneSecCommand</span><span class="p">,</span> <span class="n">threeSecCommand</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deadlinewith-java-only">
+<h3>deadlineWith (Java only)<a class="headerlink" href="#deadlinewith-java-only" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This decorator is not supported in C++ due to technical constraints - users should simply construct a parallel deadline group the ordinary way instead.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">deadlineWith()</span></code> <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#deadlineWith(edu.wpi.first.wpilibj2.command.Command...)">decorator</a> returns a <a class="reference internal" href="command-groups.html#paralleldeadlinegroup"><span class="std std-ref">parallel deadline group</span></a> with the calling command being the deadline.  When this deadline command ends it will interrupt any others that are not finished:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will be a parallel deadline group that ends after two seconds (the deadline) with the three second command getting interrupted (one second command already finished).</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">twoSecCommand</span><span class="p">.</span><span class="na">deadlineWith</span><span class="p">(</span><span class="n">oneSecCommand</span><span class="p">,</span> <span class="n">threeSecCommand</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="withname-java-only">
+<h3>withName (Java only)<a class="headerlink" href="#withname-java-only" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This decorator is not supported in C++ due to technical constraints - users should set the name of the command inside their command class instead.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">withName()</span></code> <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/CommandBase.html#withName(java.lang.String)">decorator</a> adds a name to a command. This name will appear on a dashboard when the command is sent via the <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/CommandBase.html#initSendable(edu.wpi.first.util.sendable.SendableBuilder)">sendable interface</a>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// This command will be called &quot;My Command&quot;.</span>
+<span class="kd">var</span> <span class="n">command</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintCommand</span><span class="p">(</span><span class="s">&quot;Hello robot!&quot;</span><span class="p">).</span><span class="na">withName</span><span class="p">(</span><span class="s">&quot;My Command&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="perpetually">
+<h3>perpetually<a class="headerlink" href="#perpetually" title="Permalink to this headline"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">perpetually()</span></code> decorator (<a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/Command.html#perpetually()">Java</a>, <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/classfrc2_1_1_command.html#a4e72c5be424accbf416cf35be061c918">C++</a>) removes the end condition of a command, so that it runs forever.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-17-SmF2YQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-17-SmF2YQ==" name="SmF2YQ==" role="tab" tabindex="0">Java</button><button aria-controls="panel-17-Qysr" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-17-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-17-SmF2YQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-17-SmF2YQ==" name="SmF2YQ==" role="tabpanel" tabindex="0"><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will run forever unless externally interrupted, regardless of command.isFinished()</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="na">perpetually</span><span class="p">());</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-17-Qysr" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-17-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will run forever unless externally interrupted, regardless of command.isFinished()</span>
+<span class="n">button</span><span class="p">.</span><span class="n">WhenPressed</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">Perpetually</span><span class="p">());</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="composing-decorators">
+<h3>Composing Decorators<a class="headerlink" href="#composing-decorators" title="Permalink to this headline"></a></h3>
+<p>Remember that decorators, like all command groups, can be composed! This allows very powerful and concise inline expressions:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Will run fooCommand, and then a race between barCommand and bazCommand</span>
+<span class="n">button</span><span class="p">.</span><span class="na">whenPressed</span><span class="p">(</span><span class="n">fooCommand</span><span class="p">.</span><span class="na">andThen</span><span class="p">(</span><span class="n">barCommand</span><span class="p">.</span><span class="na">raceWith</span><span class="p">(</span><span class="n">bazCommand</span><span class="p">)));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="static-factory-methods-for-command-groups-java-only">
+<h2>Static Factory Methods for Command Groups (Java only)<a class="headerlink" href="#static-factory-methods-for-command-groups-java-only" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These factory methods are not included in the C++ command library, as the reduction in verbosity would be minimal - C++ commands should be stack-allocated, removing the need for the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword.</p>
+</div>
+<p>If users do not wish to use the <code class="docutils literal notranslate"><span class="pre">andThen</span></code>, <code class="docutils literal notranslate"><span class="pre">alongWith</span></code>, <code class="docutils literal notranslate"><span class="pre">raceWith</span></code>, and <code class="docutils literal notranslate"><span class="pre">deadlineWith</span></code> decorators for declaring command groups, but still wish to reduce verbosity compared to calling the constructors, the <code class="docutils literal notranslate"><span class="pre">CommandGroupBase</span></code> <a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/edu/wpi/first/wpilibj2/command/CommandGroupBase.html">class</a> contains four static factory methods for declaring command groups: <code class="docutils literal notranslate"><span class="pre">sequence()</span></code>, <code class="docutils literal notranslate"><span class="pre">parallel()</span></code>, <code class="docutils literal notranslate"><span class="pre">race()</span></code>, and <code class="docutils literal notranslate"><span class="pre">deadline()</span></code>. When used from within a command group subclass or in combination with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">static</span></code>, these become extremely concise and greatly aid in command composition:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleSequence</span> <span class="kd">extends</span> <span class="n">SequentialCommandGroup</span> <span class="p">{</span>
+
+  <span class="c1">// Will run a FooCommand, and then a race between a BarCommand and a BazCommand</span>
+  <span class="kd">public</span> <span class="nf">ExampleSequence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">addCommands</span><span class="p">(</span>
+        <span class="k">new</span> <span class="n">FooCommand</span><span class="p">(),</span>
+        <span class="n">race</span><span class="p">(</span>
+            <span class="k">new</span> <span class="n">BarCommand</span><span class="p">(),</span>
+            <span class="k">new</span> <span class="n">BazCommand</span><span class="p">()</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="structuring-command-based-project.html" class="btn btn-neutral float-left" title="Structuring a Command-Based Robot Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pid-subsystems-commands.html" class="btn btn-neutral float-right" title="PID Control through PIDSubsystems and PIDCommands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="Retraining Mobilenet V2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+  <meta property="og:site_name" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:description" content="Upload a Dataset: To retrain the mobilenet object detection model using Axon, first upload the dataset you would like to retrain with. Create or Upload a Dataset Once you have uploaded a dataset, y..." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/wpilibsuite/branding/main/png/wpilib-128.png" />
+  <meta property="og:image:alt" content="FIRST Robotics Competition Documentation" />
+  <meta property="og:ignore_canonical" content="true" />
+<meta name="theme-color" content="#003974" />
+<meta name="google-site-verification" content="xcmdxM0KzMYiAOeJzyF_l2Tn3AHGzPICs9_vX6q2nwM" />
+<link rel="alternate" hreflang="en" href="https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="x-default" href="https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="es" href="https://docs.wpilib.org/es/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="fr" href="https://docs.wpilib.org/fr/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="he" href="https://docs.wpilib.org/he/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="pt" href="https://docs.wpilib.org/pt/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="tr" href="https://docs.wpilib.org/tr/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+<link rel="alternate" hreflang="zh-CN" href="https://docs.wpilib.org/zh_CN/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retraining Mobilenet V2 &mdash; FIRST Robotics Competition  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster.custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster.bundle.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster-sideTip-punk.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster-sideTip-noir.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster-sideTip-light.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/micromodal.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/frc-rtd.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/sphinx_rtd_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../../_static/FIRSTicon_RGB_withTM.ico"/>
+    <link rel="canonical" href="https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/axon/retraining-mobilenet.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script async="async" src="../../../../_static/js/present.js"></script>
+        <script src="../../../../_static/js/hoverxref.js"></script>
+        <script src="../../../../_static/js/tooltipster.bundle.min.js"></script>
+        <script src="../../../../_static/js/micromodal.min.js"></script>
+        <script src="../../../../_static/js/versionwarning.js"></script>
+        <script src="../../../../_static/js/api-docs-redirect.js"></script>
+        <script src="../../../../_static/js/fix-rtd-menu-ios.js"></script>
+        <script src="../../../../_static/js/external-links-new-tab.js"></script>
+        <script src="../../../../_static/js/version-2014.js"></script>
+        <script src="../../../../_static/tabs.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Inferencing on a Raspberry Pi" href="inferencing-on-a-raspberry-pi.html" />
+    <link rel="prev" title="Viewing Datasets in Axon" href="viewing-datasets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+
+
+<div class="header-bar">
+        <!-- Color Strip -->
+        <div class="color-strip">
+            <div class="fred"></div>
+            <div class="forange"></div>
+            <div class="fblue"></div>
+        </div>
+        <div class="link-bar-container">
+            <div id="link-bar" class="collapse">
+                <ul>          
+                  <li id="manual-link"><a href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">FRC Game Manual</a></li>
+                  <li id="qa-link"><a href="https://frc-qa.firstinspires.org/">FRC Game Q&A</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> FIRST Robotics Competition
+            <img src="../../../../_static/wpilibDocsLogo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Zero to Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zero-to-robot/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zero-to-robot/step-1/index.html">Step 1: Building your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zero-to-robot/step-2/index.html">Step 2: Installing Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zero-to-robot/step-3/index.html">Step 3: Preparing Your Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zero-to-robot/step-4/index.html">Step 4: Programming your Robot</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Control System Overviews</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../controls-overviews/control-system-hardware.html">Hardware Component Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../controls-overviews/control-system-software.html">Software Component Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../what-is-wpilib.html">What is WPILib?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../yearly-overview/index.html">2022 Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vscode-overview/index.html">VS Code Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dashboards/index.html">Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../telemetry/index.html">Telemetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../labview/index.html">FRC LabVIEW Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware-apis/index.html">Hardware APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../can-devices/index.html">CAN Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic-programming/index.html">Basic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/support-resources.html">Support Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../frc-glossary.html">FRC Glossary</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/java/index.html">WPILib Java API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://first.wpi.edu/wpilib/allwpilib/docs/release/cpp/index.html">WPILib C++ API Docs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../driverstation/index.html">Driver Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../robotbuilder/index.html">RobotBuilder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../robot-simulation/index.html">Robot Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../outlineviewer/index.html">OutlineViewer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Axon</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction to Axon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning.html">Introduction to Machine Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labeling-a-dataset-with-supervisely.html">Labeling a Dataset with Supervisely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-a-dataset-with-open-images.html">Creating a Dataset with Open Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewing-datasets.html">Viewing Datasets in Axon</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Retraining Mobilenet V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inferencing-on-a-raspberry-pi.html">Inferencing on a Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-on-a-robot.html">Using Inference Output on a Robot</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vision-processing/index.html">Vision Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../commandbased/index.html">Command-Based Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kinematics-and-odometry/index.html">Kinematics and Odometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networktables/index.html">NetworkTables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pathplanning/index.html">Path Planning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../roborio-info/index.html">roboRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-gradlerio/index.html">Advanced GradleRIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-controls/index.html">Advanced Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../convenience-features/index.html">Convenience Features</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples-tutorials/wpilib-examples.html">WPILib Example Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples-tutorials/third-party-examples.html">Third Party Example Projects</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/hardware-basics/index.html">Hardware - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/hardware-tutorials/index.html">Hardware Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/sensors/index.html">Sensors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Romi Robot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../romi-robot/index.html">Getting Started with Romi</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Robot Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/networking-introduction/index.html">Networking Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/networking-utilities/index.html">Networking Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/frc-docs/index.html">Contributing to frc-docs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/wpilib/index.html">Developing with allwpilib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Issues</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/wpilibsuite/frc-docs/issues">Report an Issue</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">FIRST Robotics Competition</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Axon</a> &raquo;</li>
+      <li>Retraining Mobilenet V2</li>
+<li class="wy-breadcrumbs-aside" style="padding-inline-start: 6px;">
+    <a href="?present" class="btn" style="background-color: #2980b9; color: white; padding: 5px">
+        Present
+        <span class="fa fa-expand"></span>
+    </a>
+</li>
+
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/wpilibsuite/frc-docs/blob/stable/source/docs/software/wpilib-tools/axon/retraining-mobilenet.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="retraining-mobilenet-v2">
+<h1>Retraining Mobilenet V2<a class="headerlink" href="#retraining-mobilenet-v2" title="Permalink to this headline"></a></h1>
+<div class="section" id="upload-a-dataset">
+<h2>Upload a Dataset<a class="headerlink" href="#upload-a-dataset" title="Permalink to this headline"></a></h2>
+<p>To retrain the mobilenet object detection model using Axon, first upload the dataset you would like to retrain with.</p>
+<picture><source sizes="min(min(222px, 100vw), 1000px)" srcset="../../../../_images/add-dataset.webp 222w" type="image/webp"/><img alt="Create or Upload a Dataset" decoding="async" height="406" loading="lazy" sizes="min(min(222px, 100vw), 1000px)" src="../../../../_images/add-dataset.png" srcset="../../../../_images/add-dataset.png 222w" width="222"/></picture><p>Once you have uploaded a dataset, you should see it in the tree above this button.</p>
+</div>
+<div class="section" id="create-a-project">
+<h2>Create a Project<a class="headerlink" href="#create-a-project" title="Permalink to this headline"></a></h2>
+<p>Next, you must create a project. A project will hold the data from the retraining, and any TFLite exports or tests you create with the retrained model.</p>
+<p>To create a project, click the <span class="guilabel">Add Project</span> button.</p>
+<picture><source sizes="min(min(222px, 100vw), 1000px)" srcset="../../../../_images/new-project.webp 222w" type="image/webp"/><img alt="Add a Project" decoding="async" height="500" loading="lazy" sizes="min(min(222px, 100vw), 1000px)" src="../../../../_images/new-project.png" srcset="../../../../_images/new-project.png 222w" width="222"/></picture><p>A dialog will appear, asking you to name the project. Pick a name and click <span class="guilabel">Create</span>. When you create your project, you will see it above the button to the left.</p>
+<p>Click on the project, and you will be taken to its page.</p>
+</div>
+<div class="section" id="start-retraining">
+<h2>Start Retraining<a class="headerlink" href="#start-retraining" title="Permalink to this headline"></a></h2>
+<p>At the top of the project window, there are several parameters to specify how you want the model to be retrained.</p>
+<p><strong>Epochs</strong>: The number of times the dataset will be passed through the model during training. Generally more epochs are better, and a model should continue to be trained until the performance increase becomes very small or it stops improving.</p>
+<p><strong>Batch Size</strong>: The amount of images to use in each training iteration. A larger batch size will make epochs train faster as there will be less batches, but it will require more memory to load all of the images. Generally we recommend leaving this value at default.</p>
+<p><strong>Evaluation Frequency</strong>: The amount of epochs to run before each evaluation of the models precision. Each evaluation will be viewable so you can check the progress of your model.</p>
+<p><strong>Percent Evaluation</strong>: The percent of the dataset to be reserved exclusively for evaluation of the models precision during training. A higher percent evaluation means that more images are used to test the model. Those images will not be used to train the model so there will be less training data. Generally we recommend leaving this value at default.</p>
+<p><strong>Datasets</strong>: The datasets you would wish to retrain with.
+Edit these input parameters to fit your needs, and tick the checkboxes of the desired datasets from the dropdown.</p>
+<picture><source sizes="min(min(977px, 100vw), 1000px)" srcset="../../../../_images/hyperparameters-500.webp 500w, ../../../../_images/hyperparameters-800.webp 800w, ../../../../_images/hyperparameters.webp 977w" type="image/webp"/><img alt="Hyperparameters" decoding="async" height="166" loading="lazy" sizes="min(min(977px, 100vw), 1000px)" src="../../../../_images/hyperparameters.png" srcset="../../../../_images/hyperparameters-500.png 500w, ../../../../_images/hyperparameters-800.png 800w, ../../../../_images/hyperparameters.png 977w" width="977"/></picture><p>When you are ready to start the retraining, click the play button to the right of the dataset dropdown.</p>
+<p>When an evaluation happens, a checkpoint is produced. This is a copy of the model at a particular point in the training. While the model trains, you will see checkpoints appear as points on the graph.</p>
+</div>
+<div class="section" id="exporting-a-checkpoint-in-tflite-format">
+<h2>Exporting a Checkpoint in TFLite Format<a class="headerlink" href="#exporting-a-checkpoint-in-tflite-format" title="Permalink to this headline"></a></h2>
+<p>To export a checkpoint as a TFLite model for use, select the desired checkpoint by clicking the point on the graph.</p>
+<picture><source sizes="min(min(600px, 100vw), 1000px)" srcset="../../../../_images/select-checkpoint.webp 600w" type="image/webp"/><img alt="Select a Checkpoint" decoding="async" height="541" loading="lazy" sizes="min(min(600px, 100vw), 1000px)" src="../../../../_images/select-checkpoint.png" srcset="../../../../_images/select-checkpoint.png 600w" width="600"/></picture><p>This will select the checkpoint. Export this checkpoint by clicking the export button below the graph.</p>
+<picture><source sizes="min(min(606px, 100vw), 1000px)" srcset="../../../../_images/export-button.webp 606w" type="image/webp"/><img alt="Click the Export Button" decoding="async" height="591" loading="lazy" sizes="min(min(606px, 100vw), 1000px)" src="../../../../_images/export-button.png" srcset="../../../../_images/export-button.png 606w" width="606"/></picture><p>You will soon see an export appear below the button.</p>
+<picture><source sizes="min(min(624px, 100vw), 1000px)" srcset="../../../../_images/exporting.webp 624w" type="image/webp"/><img alt="Exporting" decoding="async" height="60" loading="lazy" sizes="min(min(624px, 100vw), 1000px)" src="../../../../_images/exporting.png" srcset="../../../../_images/exporting.png 624w" width="624"/></picture><p>When the export has completed, you will see the checkpoint appear in the checkpoint menu where you can select and work with any of the exported checkpoints.</p>
+<picture><source sizes="min(min(1372px, 100vw), 1000px)" srcset="../../../../_images/export-menu-500.webp 500w, ../../../../_images/export-menu-800.webp 800w, ../../../../_images/export-menu-1100.webp 1100w, ../../../../_images/export-menu.webp 1372w" type="image/webp"/><img alt="Export Menu" decoding="async" height="256" loading="lazy" sizes="min(min(1372px, 100vw), 1000px)" src="../../../../_images/export-menu.png" srcset="../../../../_images/export-menu-500.png 500w, ../../../../_images/export-menu-800.png 800w, ../../../../_images/export-menu-1100.png 1100w, ../../../../_images/export-menu.png 1372w" width="1372"/></picture><p>You may click the menu to the right of an exported model, providing options to rename, and delete.</p>
+<picture><source sizes="min(min(1377px, 100vw), 1000px)" srcset="../../../../_images/rename-checkpoint-500.webp 500w, ../../../../_images/rename-checkpoint-800.webp 800w, ../../../../_images/rename-checkpoint-1100.webp 1100w, ../../../../_images/rename-checkpoint.webp 1377w" type="image/webp"/><img alt="Menu Options" decoding="async" height="247" loading="lazy" sizes="min(min(1377px, 100vw), 1000px)" src="../../../../_images/rename-checkpoint.png" srcset="../../../../_images/rename-checkpoint-500.png 500w, ../../../../_images/rename-checkpoint-800.png 800w, ../../../../_images/rename-checkpoint-1100.png 1100w, ../../../../_images/rename-checkpoint.png 1377w" width="1377"/></picture><p>Click the download button, and your browser will download a tarfile containing two TFLite models of the selected checkpoint, one of which is optimized for the Coral TPU. There is also a label map file, for use when converting the model’s output to a human-readable format.</p>
+<picture><source sizes="min(min(1375px, 100vw), 1000px)" srcset="../../../../_images/download-checkpoint-500.webp 500w, ../../../../_images/download-checkpoint-800.webp 800w, ../../../../_images/download-checkpoint-1100.webp 1100w, ../../../../_images/download-checkpoint.webp 1375w" type="image/webp"/><img alt="Select and Download Checkpoints" decoding="async" height="257" loading="lazy" sizes="min(min(1375px, 100vw), 1000px)" src="../../../../_images/download-checkpoint.png" srcset="../../../../_images/download-checkpoint-500.png 500w, ../../../../_images/download-checkpoint-800.png 800w, ../../../../_images/download-checkpoint-1100.png 1100w, ../../../../_images/download-checkpoint.png 1375w" width="1375"/></picture></div>
+<div class="section" id="testing-an-exported-model">
+<h2>Testing an Exported Model<a class="headerlink" href="#testing-an-exported-model" title="Permalink to this headline"></a></h2>
+<p>To test an exported model, open the testing dialog by clicking the <span class="guilabel">Test</span> button in the menu of the export you would like to test.</p>
+<picture><source sizes="min(min(1382px, 100vw), 1000px)" srcset="../../../../_images/test-checkpoint-button-500.webp 500w, ../../../../_images/test-checkpoint-button-800.webp 800w, ../../../../_images/test-checkpoint-button-1100.webp 1100w, ../../../../_images/test-checkpoint-button.webp 1382w" type="image/webp"/><img alt="Test Checkpoint" decoding="async" height="246" loading="lazy" sizes="min(min(1382px, 100vw), 1000px)" src="../../../../_images/test-checkpoint-button.png" srcset="../../../../_images/test-checkpoint-button-500.png 500w, ../../../../_images/test-checkpoint-button-800.png 800w, ../../../../_images/test-checkpoint-button-1100.png 1100w, ../../../../_images/test-checkpoint-button.png 1382w" width="1382"/></picture><picture><source sizes="min(min(224px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-10.webp 224w" type="image/webp"/><img alt="Test Menu" decoding="async" height="316" loading="lazy" sizes="min(min(224px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-10.png" srcset="../../../../_images/axon-mobilenet-10.png 224w" width="224"/></picture><p>First, click the <span class="guilabel">Select Video</span> box, and click the <span class="guilabel">+</span> that will appear to upload a video.</p>
+<picture><source sizes="min(min(340px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-11.webp 340w" type="image/webp"/><img alt="Upload" decoding="async" height="284" loading="lazy" sizes="min(min(340px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-11.png" srcset="../../../../_images/axon-mobilenet-11.png 340w" width="340"/></picture><p>This will open a window that allows you to upload a <code class="docutils literal notranslate"><span class="pre">.mp4</span></code> file.</p>
+<picture><source sizes="min(min(368px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-12.webp 368w" type="image/webp"/><img alt="Save" decoding="async" height="324" loading="lazy" sizes="min(min(368px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-12.png" srcset="../../../../_images/axon-mobilenet-12.png 368w" width="368"/></picture><p>Drop a <code class="docutils literal notranslate"><span class="pre">.mp4</span></code> in the dropzone, or click to select the file. Once the file is in the dropzone, click <span class="guilabel">Save</span>.</p>
+<p>When uploaded, you will see the video in the dropdown menu, allowing you to select it for the test.</p>
+<p>You have the option to change the name of the annotated output video produced by the test.</p>
+<picture><source sizes="min(min(392px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-13.webp 392w" type="image/webp"/><img alt="Press Test" decoding="async" height="354" loading="lazy" sizes="min(min(392px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-13.png" srcset="../../../../_images/axon-mobilenet-13.png 392w" width="392"/></picture><p>Click the <span class="guilabel">Test</span> button, and you will see the test begin.</p>
+<picture><source sizes="min(min(314px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-14.webp 314w" type="image/webp"/><img alt="View the Test" decoding="async" height="348" loading="lazy" sizes="min(min(314px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-14.png" srcset="../../../../_images/axon-mobilenet-14.png 314w" width="314"/></picture><p>The test uses your model to annotate the video, creating a stream for you to watch as it happens. Click the <span class="guilabel">View</span> button, and the stream will open in a separate tab.</p>
+<p>When the test completes, you will see it at the bottom of the test dialog.</p>
+<picture><source sizes="min(min(388px, 100vw), 1000px)" srcset="../../../../_images/axon-mobilenet-15.webp 388w" type="image/webp"/><img alt="Test Dialog" decoding="async" height="352" loading="lazy" sizes="min(min(388px, 100vw), 1000px)" src="../../../../_images/axon-mobilenet-15.png" srcset="../../../../_images/axon-mobilenet-15.png 388w" width="388"/></picture><p>You can download the annotated video. Click the download icon next to the test’s name, and your browser will begin the download. The video is currently a <code class="docutils literal notranslate"><span class="pre">.mp4</span></code> within a <code class="docutils literal notranslate"><span class="pre">.zip</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="viewing-datasets.html" class="btn btn-neutral float-left" title="Viewing Datasets in Axon" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inferencing-on-a-raspberry-pi.html" class="btn btn-neutral float-right" title="Inferencing on a Raspberry Pi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, FIRST and other WPILib Contributors.
+      <span class="commit">Revision <code>30e056cb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/2021/">2021</a></dd>
+        
+          <dd><a href="/en/2020/">2020</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//docs.wpilib.org/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/frc-docs/?fromdocs=frc-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/frc-docs/?fromdocs=frc-docs">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+  <script>
+    if (typeof READTHEDOCS_DATA !== 'undefined') {
+        if (!READTHEDOCS_DATA.features) {
+          READTHEDOCS_DATA.features = {};
+        }
+        READTHEDOCS_DATA.features.docsearch_disabled = false;
+      }
+    </script>
+
+</body>
+</html>
